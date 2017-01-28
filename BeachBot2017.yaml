@@ -121,7 +121,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: &id005 [DigitalChannel]
-          value: '0'
+          value: '1'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -145,9 +145,9 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: &id009 [DigitalChannel]
-          value: '1'
+          value: '2'
       Base: Quadrature Encoder
-      Name: Quadrature Encoder L
+      Name: driveTrainEncoderL
     - Children: []
       Properties:
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
@@ -155,7 +155,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: *id005
-          value: '2'
+          value: '3'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -177,9 +177,9 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: *id009
-          value: '3'
+          value: '4'
       Base: Quadrature Encoder
-      Name: Quadrature Encoder R
+      Name: driveTrainEncoderR
     - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
@@ -210,6 +210,16 @@ Children:
           value: '3'
       Base: Double Solenoid
       Name: Shifter
+    - Children: []
+      Properties:
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Input Channel (Analog)
+          validators: [AnalogInput]
+          value: '0'
+      Base: Analog Input
+      Name: pressureSensor
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -462,6 +472,57 @@ Children:
         value: *id014
     Base: Subsystem
     Name: Pickup
+  - Children:
+    - Children: []
+      Properties:
+        Output Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+            '24', '25']
+          default: '0'
+          name: Output Channel (Digital)
+          validators: [DigitalChannel]
+          value: '9'
+      Base: Digital Output
+      Name: Buzzer
+    - Children: []
+      Properties:
+        Input Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+            '24', '25']
+          default: '0'
+          name: Input Channel (Digital)
+          validators: [DigitalChannel]
+          value: '0'
+      Base: Digital Input
+      Name: practiceRobot
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          default: '0'
+          name: CAN ID
+          validators: null
+          value: '0'
+      Base: PowerDistributionPanel
+      Name: PowerDistPanel
+    Properties:
+      Default command parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Default command parameters
+        validators: null
+        value: []
+      Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Default Command, type: Command, validators: null, value: None}
+      Constants: !!robotbuilder.data.properties.ConstantsProperty
+        default: []
+        name: Constants
+        validators: null
+        value: []
+    Base: Subsystem
+    Name: Frills
   Properties: {}
   Base: Subsystems
   Name: Subsystems
@@ -475,7 +536,7 @@ Children:
         validators: &id024 [Joystick]
         value: '0'
     Base: Joystick
-    Name: driverL
+    Name: DriverL
   - Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
@@ -485,7 +546,7 @@ Children:
         validators: *id024
         value: '1'
     Base: Joystick
-    Name: driverR
+    Name: DriverR
   Properties: {}
   Base: OI
   Name: Operator Interface
@@ -595,9 +656,9 @@ Properties:
     value: []
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc333}
-  Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: false,
+  Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Team Number: !!robotbuilder.data.properties.IntegerProperty {default: 330, name: Team Number,
+  Team Number: !!robotbuilder.data.properties.IntegerProperty {default: 0, name: Team Number,
     validators: null, value: 330}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Subsystems, validators: null, value: true}
