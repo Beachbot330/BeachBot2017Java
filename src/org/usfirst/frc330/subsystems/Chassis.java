@@ -9,11 +9,11 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc333.subsystems;
+package org.usfirst.frc330.subsystems;
 
-import org.usfirst.frc333.Robot;
-import org.usfirst.frc333.RobotMap;
-import org.usfirst.frc333.commands.*;
+import org.usfirst.frc330.Robot;
+import org.usfirst.frc330.RobotMap;
+import org.usfirst.frc330.commands.*;
 
 import com.kauailabs.navx.frc.AHRS;
 

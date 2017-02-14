@@ -9,9 +9,9 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc333;
+package org.usfirst.frc330;
 
-import org.usfirst.frc333.commands.*;
+import org.usfirst.frc330.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;

@@ -9,14 +9,14 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc333;
+package org.usfirst.frc330;
 
 import edu.wpi.first.wpilibj.BBIterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc333.commands.*;
-import org.usfirst.frc333.subsystems.*;
+import org.usfirst.frc330.commands.*;
+import org.usfirst.frc330.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
