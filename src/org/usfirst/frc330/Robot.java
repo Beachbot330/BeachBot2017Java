@@ -85,6 +85,10 @@ public class Robot extends BBIterativeRobot {
         	Logger.getInstance().println("Competition Robot Detected",true);
     
         buzzer.enable(0.75);
+        frills.setGreenLEDs(false);
+        frills.setAlarmLED(Frills.Alarm.OFF);
+        frills.setDecorativeStyleLED(Frills.Style.TWINKLE);
+        
     }
 
     /**
