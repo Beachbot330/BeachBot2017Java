@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SPI.Port;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -59,10 +60,12 @@ public class RobotMap {
     public static AnalogInput chassisPressureSensor;
     public static AHRS chassisImu;
     public static BBSolenoid shooterClimberBreak;
-    public static CANTalon shooterShooter;
+    public static CANTalon shooterShooter1;
     public static CANTalon shooterShooter2;
     public static CANTalon shooterFeederClimber1;
     public static CANTalon shooterFeederClimber2;
+    public static Servo shooterHood1;
+    public static Servo shooterHood2;
     public static BBSolenoid pickupIntakeAngle;
     public static BBSolenoid pickupIntakeExtend;
     public static BBSolenoid pickupWings;
@@ -133,8 +136,8 @@ public class RobotMap {
         shooterClimberBreak = new BBSolenoid(0, 2);
         LiveWindow.addActuator("Shooter", "ClimberBreak", shooterClimberBreak);
         
-        shooterShooter = new CANTalon(1);
-        LiveWindow.addActuator("Shooter", "Shooter", shooterShooter);
+        shooterShooter1 = new CANTalon(1);
+        LiveWindow.addActuator("Shooter", "Shooter1", shooterShooter1);
         
         shooterShooter2 = new CANTalon(2);
         LiveWindow.addActuator("Shooter", "Shooter2", shooterShooter2);
@@ -144,6 +147,12 @@ public class RobotMap {
         
         shooterFeederClimber2 = new CANTalon(4);
         LiveWindow.addActuator("Shooter", "FeederClimber2", shooterFeederClimber2);
+        
+        shooterHood1 = new Servo(8);
+        LiveWindow.addActuator("Shooter", "Hood1", shooterHood1);
+        
+        shooterHood2 = new Servo(9);
+        LiveWindow.addActuator("Shooter", "Hood2", shooterHood2);
         
         pickupIntakeAngle = new BBSolenoid(0, 7);
         LiveWindow.addActuator("Pickup", "IntakeAngle", pickupIntakeAngle);
@@ -169,10 +178,10 @@ public class RobotMap {
         pickupLift = new BBSolenoid(0, 1);
         LiveWindow.addActuator("Pickup", "Lift", pickupLift);
         
-        pickupHopper1 = new VictorSP(8);
+        pickupHopper1 = new VictorSP(10);
         LiveWindow.addActuator("Pickup", "Hopper1", (VictorSP) pickupHopper1);
         
-        pickupHopper2 = new VictorSP(9);
+        pickupHopper2 = new VictorSP(11);
         LiveWindow.addActuator("Pickup", "Hopper2", (VictorSP) pickupHopper2);
         
 
