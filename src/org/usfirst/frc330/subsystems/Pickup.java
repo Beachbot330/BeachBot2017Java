@@ -98,5 +98,28 @@ public class Pickup extends Subsystem {
     public void intakeIn() {
     	intakeAngle.set(false);
     }
+    
+    public void gearPickupDown() {
+    	lift.set(true);
+    }
+    
+    public void gearPickupUp() {
+    	lift.set(false);
+    }
+    
+    public void hopperAgitate() {
+    	hopper1.set(PickupConst.HOPPER_AGITATE_SPEED);
+    	hopper2.set(PickupConst.HOPPER_AGITATE_SPEED);
+    }
+    
+    public void hoppedFeed() {
+    	hopper1.set(PickupConst.HOPPER_FEED_SPEED);
+    	hopper2.set(PickupConst.HOPPER_FEED_SPEED);
+    }
+    
+    public void hopperStop(){
+    	hopper1.stopMotor();
+    	hopper2.stopMotor();
+    }
 }
 
