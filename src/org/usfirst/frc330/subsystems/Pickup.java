@@ -123,5 +123,15 @@ public class Pickup extends Subsystem {
     	hopper1.stopMotor();
     	hopper2.stopMotor();
     }
+
+	public void gearGrab() {
+		pincher.set(true);
+	}
+
+	public void gearRelease() {
+		pincher.set(false);
+	}
+	
+	
 }
 

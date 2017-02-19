@@ -95,10 +95,10 @@ public class Shooter extends Subsystem {
     	};
     	CSVLogger.getInstance().add("ShooterCurrent", temp);
     	
-    	SmartDashboard.putData("Shooter Start Default", new ShooterStart());
-    	SmartDashboard.putData("Shooter Start Close", new ShooterStart(ShooterConst.CLOSE));
-    	SmartDashboard.putData("Shooter Start Far", new ShooterStart(ShooterConst.FAR));
-    	SmartDashboard.putData("Shooter Start Recirculate", new ShooterStart(ShooterConst.RECIRCULATE));
+    	//SmartDashboard.putData("Shooter Start Default", new ShooterStart());
+    	//SmartDashboard.putData("Shooter Start Close", new ShooterStart(ShooterConst.CLOSE));
+    	//SmartDashboard.putData("Shooter Start Far", new ShooterStart(ShooterConst.FAR));
+    	//SmartDashboard.putData("Shooter Start Recirculate", new ShooterStart(ShooterConst.RECIRCULATE));
 
     }
 
