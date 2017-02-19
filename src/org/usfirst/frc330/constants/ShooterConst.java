@@ -1,10 +1,10 @@
 package org.usfirst.frc330.constants;
 
 public class ShooterConst {
-																      //  P    I    D    F      rampRate RPM   Hood
-	public static final ShooterSettings CLOSE =       new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.1000, 3000, 0.0);   //WAG
-	public static final ShooterSettings FAR =         new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.1000, 4000, 0.0);   //WAG
-	public static final ShooterSettings RECIRCULATE = new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.1000, 4000, 0.0);   //WAG
+	                                                                  //  P    I    D    F      rampRate RPM  tol    Hood
+	public static final ShooterSettings CLOSE =       new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 100.0, 3000, 100.0, 0.0);   //WAG
+	public static final ShooterSettings FAR =         new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 100.0, 4000, 100.0, 0.0);   //WAG
+	public static final ShooterSettings RECIRCULATE = new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.000, 1000, 200.0, 0.0);   //WAG
 	public static final ShooterSettings DEFAULT     = CLOSE;
 	
 	
@@ -12,6 +12,7 @@ public class ShooterConst {
 		double p,i,d,f;
 		double rampRate;
 		double targetRPM;
+		double tolerance;
 		double hoodLocation;
 		
 		public double getP() {
@@ -32,10 +33,13 @@ public class ShooterConst {
 		public double getTargetRPM() {
 			return targetRPM;
 		}
+		public double getTolerance() {
+			return tolerance;
+		}
 		public double getHoodLocation() {
 			return hoodLocation;
 		}
-		public ShooterSettings(double p, double i, double d, double f, double rampRate, double targetRPM, double hoodLocation) {
+		public ShooterSettings(double p, double i, double d, double f, double rampRate, double targetRPM, double tolerance, double hoodLocation) {
 			super();
 			this.p = p;
 			this.i = i;
@@ -43,11 +47,12 @@ public class ShooterConst {
 			this.f = f;
 			this.rampRate= rampRate;
 			this.targetRPM = targetRPM;
+			this.tolerance = tolerance;
 			this.hoodLocation = hoodLocation;
 		}
 		@Override
 		public String toString() {
-			return "P: " + p + " I: " + i + " D: " + d + " F: " + f + " Ramp: " + rampRate + " Target: " + targetRPM + " Hood: " + hoodLocation;
+			return "P: " + p + " I: " + i + " D: " + d + " F: " + f + " Ramp: " + rampRate + " Target: " + targetRPM + "Tolerance: " + tolerance + " Hood: " + hoodLocation;
 		}
 		
 	}
