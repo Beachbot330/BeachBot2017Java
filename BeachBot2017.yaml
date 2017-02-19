@@ -1014,7 +1014,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
-    Name: ShooterStop
+    Name: ShooterFeed
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1025,14 +1025,14 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Shooter}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
+        default: &id026 []
         name: Parameter presets
         validators: null
-        value: []
+        value: *id026
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-    Base: Command
-    Name: ShooterFeed
+    Base: Instant Command
+    Name: ShooterStop
   Properties: {}
   Base: Commands
   Name: Commands
