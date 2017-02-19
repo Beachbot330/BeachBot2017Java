@@ -134,5 +134,13 @@ public class Shooter extends Subsystem {
     public boolean isShooterAtSpeed() {
     	return (Math.abs(shooter1.getSpeed() - shooterSettings.getTargetRPM()) < shooterSettings.getTolerance());
     }
+    
+	public void climberLock() {
+		climberBrake.set(false);	
+	}
+	
+	public void climberUnlock() {
+		climberBrake.set(true);	
+	}
 }
 
