@@ -1,10 +1,10 @@
 package org.usfirst.frc330.constants;
 
 public class ShooterConst {
-																      //  P    I    D    F       RPM   Hood
-	public static final ShooterSettings CLOSE =       new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 3000, 0.0);   //WAG
-	public static final ShooterSettings FAR =         new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 4000, 0.0);   //WAG
-	public static final ShooterSettings RECIRCULATE = new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 4000, 0.0);   //WAG
+																      //  P    I    D    F      rampRate RPM   Hood
+	public static final ShooterSettings CLOSE =       new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.1000, 3000, 0.0);   //WAG
+	public static final ShooterSettings FAR =         new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.1000, 4000, 0.0);   //WAG
+	public static final ShooterSettings RECIRCULATE = new ShooterSettings(0.2, 0.0, 0.0, 0.0045, 0.1000, 4000, 0.0);   //WAG
 	public static final ShooterSettings DEFAULT     = CLOSE;
 	
 	
