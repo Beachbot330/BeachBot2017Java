@@ -172,5 +172,13 @@ public class Shooter extends Subsystem {
     public void stopGate() {
     	gate1.setSetpoint(0);
     }
+    
+	public void climberLock() {
+		climberBrake.set(false);	
+	}
+	
+	public void climberUnlock() {
+		climberBrake.set(true);	
+	}
 }
 
