@@ -17,12 +17,12 @@ public final class ChassisConst {
 	public static final double pickupReverseSpeed         = 2.0;
 	
 	//Encoder Distance Constants
-    public static final double wheelDiameter 			  = 7.65;
+    public static final double wheelDiameter 			  = 4.0;
     public static final double pulsePerRevolution 		  = 360;
     public static final double practicePulsePerRevolution = 250;
     public static final double encoderGearRatio 		  = 3;
-    public static final double gearRatio 				  = 64.0/20.0;
-    public static final double Fudgefactor 				  = 0.97;
+    public static final double gearRatio 				  = 54.0/30.0;
+    public static final double Fudgefactor 				  = 1.05;
     
     //Turn Gyro 
     public static final double rotateProportional 		  = 0.11;
