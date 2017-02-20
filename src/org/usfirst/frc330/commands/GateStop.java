@@ -37,6 +37,7 @@ public class GateStop extends BBInstantCommand {
 
     // Called once when this command runs
     protected void initialize() {
+    	Robot.shooter.stopGate();
     }
 
 }
