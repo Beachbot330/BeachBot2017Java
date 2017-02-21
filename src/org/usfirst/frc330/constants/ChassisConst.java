@@ -22,7 +22,7 @@ public final class ChassisConst {
     public static final double practicePulsePerRevolution = 250;
     public static final double encoderGearRatio 		  = 3;
     public static final double gearRatio 				  = 54.0/30.0;
-    public static final double Fudgefactor 				  = 1.05;
+    public static final double Fudgefactor 				  = 1.03;		//JR 2/21
     
     //Turn Gyro 
     public static final double rotateProportional 		  = 0.11;
