@@ -122,6 +122,7 @@ public class Robot extends BBIterativeRobot {
     	Logger.getInstance().updateDate();
     	
     	Robot.chassis.resetPosition();
+    	Robot.shooter.climberUnlock();
     	
     	autonomousCommand = autoProgram.getSelected();
         if (autonomousCommand != null) {
@@ -150,6 +151,7 @@ public class Robot extends BBIterativeRobot {
     	Logger.getInstance().println("Teleop Init", true);
     	Logger.getInstance().updateDate();
     	buzzer.enable(1.25);
+    	Robot.shooter.climberUnlock();
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove

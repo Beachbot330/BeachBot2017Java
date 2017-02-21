@@ -39,6 +39,7 @@ public class GateFeed extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.shooter.climberUnlock();
     	if (!Robot.shooter.isShooterAtSpeed()) {
     		Robot.shooter.enableGate();
     		gateState = true;
