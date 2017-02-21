@@ -130,6 +130,11 @@ public class Pickup extends Subsystem {
 	public void gearRelease() {
 		pincher.set(false);
 	}
+
+	public boolean isGearPresent() {
+		return  gearSensor.get();
+		
+	}
 	
 	
 }
