@@ -105,8 +105,13 @@ public class Robot extends BBIterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
 		Logger.getInstance().println("Disabled Init",true);
+		Robot.shooter.climberLock();
+		Robot.pickup.gearPickupUp();
+		Robot.pickup.gearRelease();
+		Robot.pickup.intakeIn();
+		Robot.pickup.intakeRetract();
+		Robot.pickup.wingsClosed();
     }
 
     public void disabledPeriodic() {
