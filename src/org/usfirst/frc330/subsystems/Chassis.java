@@ -122,7 +122,7 @@ public class Chassis extends Subsystem {
         final double distanceperpulse = Math.PI*ChassisConst.wheelDiameter/pulsePerRevolution /
         		ChassisConst.encoderGearRatio/ChassisConst.gearRatio * ChassisConst.Fudgefactor;
 
-        driveTrainEncoderR.setReverseDirection(false);
+        driveTrainEncoderR.setReverseDirection(true);
         driveTrainEncoderL.setDistancePerPulse(distanceperpulse);
         driveTrainEncoderR.setDistancePerPulse(distanceperpulse);
      
