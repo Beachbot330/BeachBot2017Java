@@ -50,10 +50,7 @@ public class ShooterStart extends BBCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     
-    protected void end() {
-    	Robot.shooter.disableShooter();
-    }
 }

@@ -95,6 +95,11 @@ public class Shooter extends Subsystem {
 			public double get() { return shooter1.getOutputCurrent(); }
     	};
     	CSVLogger.getInstance().add("ShooterCurrent", temp);
+    	
+    	temp = new CSVLoggable(false) {
+			public double get() { return isShooterAtSpeed() ? 1.0 : 0.0; }
+    	};
+    	CSVLogger.getInstance().add("ShooterRPMOk", temp);
 
 		gate1.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
         gate1.reverseSensor(false);
