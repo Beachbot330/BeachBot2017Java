@@ -62,10 +62,8 @@ public class RobotMap {
     public static AnalogInput chassisPressureSensor;
     public static AHRS chassisImu;
     public static BBSolenoid shooterClimberBrake;
-    public static CANTalon shooterShooter1;
-    public static CANTalon shooterShooter2;
-    public static CANTalon shooterGate1;
-    public static CANTalon shooterGate2;
+    public static CANTalon shooterShooter;
+    public static CANTalon shooterGate;
     public static Servo shooterHood1;
     public static Servo shooterHood2;
     public static BBSolenoid pickupIntakeAngle;
@@ -143,17 +141,11 @@ public class RobotMap {
         shooterClimberBrake = new BBSolenoid(0, 2);
         LiveWindow.addActuator("Shooter", "ClimberBrake", shooterClimberBrake);
         
-        shooterShooter1 = new CANTalon(1);
-        LiveWindow.addActuator("Shooter", "Shooter1", shooterShooter1);
+        shooterShooter = new CANTalon(2);
+        LiveWindow.addActuator("Shooter", "Shooter", shooterShooter);
         
-        shooterShooter2 = new CANTalon(2);
-        LiveWindow.addActuator("Shooter", "Shooter2", shooterShooter2);
-        
-        shooterGate1 = new CANTalon(3);
-        LiveWindow.addActuator("Shooter", "Gate1", shooterGate1);
-        
-        shooterGate2 = new CANTalon(4);
-        LiveWindow.addActuator("Shooter", "Gate2", shooterGate2);
+        shooterGate = new CANTalon(4);
+        LiveWindow.addActuator("Shooter", "Gate", shooterGate);
         
         shooterHood1 = new Servo(8);
         LiveWindow.addActuator("Shooter", "Hood1", shooterHood1);
