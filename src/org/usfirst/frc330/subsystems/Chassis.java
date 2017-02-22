@@ -11,9 +11,12 @@
 
 package org.usfirst.frc330.subsystems;
 
+import java.util.ArrayList;
+
 import org.usfirst.frc330.Robot;
 import org.usfirst.frc330.RobotMap;
 import org.usfirst.frc330.commands.*;
+import org.usfirst.frc330.commands.drivecommands.Waypoint;
 
 import com.kauailabs.navx.frc.AHRS;
 
@@ -33,6 +36,8 @@ import edu.wpi.first.wpilibj.Talon;
 import org.usfirst.frc330.constants.ChassisConst;
 import org.usfirst.frc330.util.CSVLoggable;
 import org.usfirst.frc330.util.CSVLogger;
+import org.usfirst.frc330.util.Logger;
+import org.usfirst.frc330.util.Logger.Severity;
 import org.usfirst.frc330.wpilibj.BBDoubleSolenoid;
 import org.usfirst.frc330.wpilibj.DummyPIDOutput;
 import org.usfirst.frc330.wpilibj.MultiPIDController;
@@ -456,10 +461,96 @@ public class Chassis extends Subsystem {
     
     public double getPressure()
     {
-    	if (Robot.isPracticeRobot())
+    	if (Robot.isPracticeRobot())  //TODO may not be necessary to account for different pressure sensors
     		return (50*pressureSensor.getAverageVoltage() -25);
     	return 37.5*(pressureSensor.getAverageVoltage()- 0.5);
     }
+    
+	ArrayList<Waypoint> path;
+	int currentWaypoint = 0;
 	
+	public void setPath(ArrayList<Waypoint> path) {
+		this.path = path;
+		currentWaypoint = 0;
+	}
+	
+
+
+	public int getNextWaypointNumber() {
+		return currentWaypoint;
+	}
+	
+	public Waypoint getNextWaypoint() {
+		return path.get(getNextWaypointNumber());
+	}
+	
+	public void incrementWaypoint() {
+		if (currentWaypoint + 1 < path.size()) {
+			currentWaypoint++;
+		}
+	}
+	
+	public double getDistanceToEnd() {
+		return getDistanceToWaypoint(path.get(path.size()-1));
+	}
+	
+	public double getAngleToWaypoint(Waypoint waypt) {
+		double deltaX = waypt.getX() - getX();
+        double deltaY = waypt.getY() - getY();
+        
+		return Math.toDegrees(Math.atan2(deltaX, deltaY));
+	}
+
+	public double getAngleToNextWaypoint() {
+		return getAngleToWaypoint(getNextWaypoint());
+	}
+	
+	public double getDistanceBetweenWaypoints(Waypoint cur, Waypoint to) {
+		double deltaX = to.getX() - cur.getX();
+        double deltaY = to.getY() - cur.getY();
+        
+        return Math.sqrt(deltaX*deltaX+deltaY*deltaY);
+	}
+	
+	public double getDistanceToWaypoint(Waypoint waypt) {
+		Waypoint currentLocation = new Waypoint(Robot.chassis.getX(), Robot.chassis.getY(), Robot.chassis.getAngle());
+        return getDistanceBetweenWaypoints(currentLocation, waypt);
+	}
+	
+	public double getDistanceToNextWaypoint() {
+		return getDistanceToWaypoint(getNextWaypoint());
+	}
+	
+	public int getCurrentWaypointNumber() {
+		return currentWaypoint;
+	}
+	
+	public Waypoint getCurrentWaypoint() {
+		return path.get(currentWaypoint);
+	}
+	
+	public int getPreviousWaypointNumber() {
+		if (currentWaypoint - 1 >= 0) {
+			return currentWaypoint - 1;
+		}
+		else {
+			Logger.getInstance().println("Attempt to get negative previous waypoint", Severity.ERROR);
+			return currentWaypoint;
+		}
+	}
+	
+	public Waypoint getPreviousWaypoint() {
+		if (currentWaypoint - 1 >= 0) {
+			return path.get(currentWaypoint - 1);
+		}
+		else {
+			Logger.getInstance().println("Attempt to get negative previous waypoint", Severity.ERROR);
+			return path.get(currentWaypoint);
+		}
+	}
+	
+	public int getLastWaypointNumber() {
+		return path.size()-1;
+	}
 }
 
