@@ -69,7 +69,6 @@ public class OI {
     public JoystickButton pickUpBalls_2;
     public JoystickButton prepareToShoot_4;
     public JoystickButton pickupGear_3Pressed;
-    public JoystickButton pickupOff_3Released;
     public JoystickButton defenseMode_1;
     public JoystickButton climb_56;
     public JoystickButton defenseMode_3rel;
@@ -88,9 +87,7 @@ public class OI {
         climb_56.whileHeld(new Climb());
         defenseMode_1 = new JoystickButton(operator, 1);
         defenseMode_1.whenPressed(new DefenseMode());
-        pickupOff_3Released = new JoystickButton(operator, 1);
-        pickupOff_3Released.whenReleased(new PickupOff());
-        pickupGear_3Pressed = new JoystickButton(operator, 1);
+        pickupGear_3Pressed = new JoystickButton(operator, 3);
         pickupGear_3Pressed.whenPressed(new PickupGear());
         prepareToShoot_4 = new JoystickButton(operator, 4);
         prepareToShoot_4.whenPressed(new PrepareToShoot());
