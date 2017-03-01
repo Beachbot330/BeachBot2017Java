@@ -66,8 +66,6 @@ public class RobotMap {
     public static CANTalon shooterGate;
     public static Servo shooterHood1;
     public static Servo shooterHood2;
-    public static BBSolenoid pickupIntakeAngle;
-    public static BBSolenoid pickupIntakeExtend;
     public static BBSolenoid pickupWings;
     public static SpeedController pickupPickup1;
     public static SpeedController pickupPickup2;
@@ -150,12 +148,6 @@ public class RobotMap {
         
         shooterHood2 = new Servo(9);
         LiveWindow.addActuator("Shooter", "Hood2", shooterHood2);
-        
-        pickupIntakeAngle = new BBSolenoid(0, 7);
-        LiveWindow.addActuator("Pickup", "IntakeAngle", pickupIntakeAngle);
-        
-        pickupIntakeExtend = new BBSolenoid(0, 5);
-        LiveWindow.addActuator("Pickup", "IntakeExtend", pickupIntakeExtend);
         
         pickupWings = new BBSolenoid(0, 6);
         LiveWindow.addActuator("Pickup", "Wings", pickupWings);

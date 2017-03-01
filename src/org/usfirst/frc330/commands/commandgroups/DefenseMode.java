@@ -48,18 +48,6 @@ public class DefenseMode extends BBCommandGroup {
  
     	// Pickup on during collapse
     	addSequential(new ShooterStop());
-    	addSequential(new HopperAgitate());
-    	addSequential(new PickupOn());
-    	addSequential(new IntakeRetract());
-    	
-    	// Give intake time to retract
-    	addSequential(new WaitCommand(0.3));
-    	
-    	// Close the intake
-    	addSequential(new IntakeIn());
-    	addSequential(new WaitCommand(0.3));
-    	
-    	// Stop ball motors
     	addSequential(new HopperStop());
     	addSequential(new PickupOff());
     	

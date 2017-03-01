@@ -124,10 +124,6 @@ public class OI {
         SmartDashboard.putData("PickupReverse", new PickupReverse());
         SmartDashboard.putData("ShiftHigh", new ShiftHigh());
         SmartDashboard.putData("ShiftLow", new ShiftLow());
-        SmartDashboard.putData("IntakeIn", new IntakeIn());
-        SmartDashboard.putData("IntakeOut", new IntakeOut());
-        SmartDashboard.putData("IntakeExtend", new IntakeExtend());
-        SmartDashboard.putData("IntakeRetract", new IntakeRetract());
         SmartDashboard.putData("WingsOpen", new WingsOpen());
         SmartDashboard.putData("WingsClosed", new WingsClosed());
         SmartDashboard.putData("PickUpBalls", new PickUpBalls());

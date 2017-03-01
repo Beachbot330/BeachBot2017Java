@@ -128,8 +128,6 @@ public class Robot extends BBIterativeRobot {
 		Robot.shooter.climberLock();
 		Robot.pickup.gearPickupUp();
 		Robot.pickup.gearRelease();
-		Robot.pickup.intakeIn();
-		Robot.pickup.intakeRetract();
 		Robot.pickup.wingsClosed();
     }
 
