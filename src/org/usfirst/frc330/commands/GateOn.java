@@ -12,6 +12,7 @@
 package org.usfirst.frc330.commands;
 import edu.wpi.first.wpilibj.command.BBCommand;
 import org.usfirst.frc330.Robot;
+import org.usfirst.frc330.constants.ShooterConst;
 
 /**
  *
@@ -38,6 +39,7 @@ public class GateOn extends BBCommand {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.shooter.climberUnlock();
+    	Robot.shooter.setGateSettings(ShooterConst.GATE);
     	Robot.shooter.enableGate();
     }
 

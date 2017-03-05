@@ -45,6 +45,7 @@ public class ShooterStart extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.shooter.setShooterSettings(settings);
     	Robot.shooter.enableShooter();
     }
 

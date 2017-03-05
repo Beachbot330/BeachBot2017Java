@@ -145,11 +145,16 @@ public class Shooter extends Subsystem {
     }
     
     public void enableShooter() {
+    	shooter.set(shooterSettings.getTargetRPM());
     	shooter.enableControl();
     }
     
     public void disableShooter() {
     	shooter.disableControl();
+    }
+    
+    public void stopShooter() {
+    	shooter.set(0);
     }
     
     public boolean isShooterAtSpeed() {
@@ -164,7 +169,7 @@ public class Shooter extends Subsystem {
     }
     
     public void enableGate() {
-    	gate.setSetpoint(gateSettings.getTargetRPM());
+    	gate.set(gateSettings.getTargetRPM());
     	gate.enableControl();
     }
     
