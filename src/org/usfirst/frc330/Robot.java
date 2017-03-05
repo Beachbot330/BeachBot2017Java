@@ -75,18 +75,20 @@ public class Robot extends BBIterativeRobot {
         oi = new OI();
         
         // Setup Cameras --------------------------------------------------------
-        UsbCamera DriverCam = CameraServer.getInstance().startAutomaticCapture();
+        UsbCamera DriverCam = CameraServer.getInstance().startAutomaticCapture("Driver", "/dev/v4l/by-path/platform-ci_hdrc.0-usb-0:1.2.2:1.0-video-index0");
         if (!DriverCam.setResolution(160, 120))
         	Logger.getInstance().println("Resolution failed to set", Severity.ERROR);
         if (!DriverCam.setFPS(15))
         	Logger.getInstance().println("FPS failed to set", Severity.ERROR);
+        Logger.getInstance().println("DriverCam Get Video Mode: " + DriverCam.getVideoMode().width +
+        		", " + DriverCam.getVideoMode().height + ", " + DriverCam.getVideoMode().fps, Severity.DEBUG);
         
-        UsbCamera VisionCam = CameraServer.getInstance().startAutomaticCapture();
+        UsbCamera VisionCam = CameraServer.getInstance().startAutomaticCapture("Vision", "/dev/v4l/by-path/platform-ci_hdrc.0-usb-0:1.2.3:1.0-video-index0");
         if (!VisionCam.setResolution(640, 480))
         	Logger.getInstance().println("Resolution failed to set", Severity.ERROR);
         if (!VisionCam.setFPS(7))
         	Logger.getInstance().println("FPS failed to set", Severity.ERROR);
-        Logger.getInstance().println("Get Video Mode: " + VisionCam.getVideoMode().width +
+        Logger.getInstance().println("VisionCam Get Video Mode: " + VisionCam.getVideoMode().width +
         		", " + VisionCam.getVideoMode().height + ", " + VisionCam.getVideoMode().fps, Severity.DEBUG);
         VisionCam.setExposureManual(1);
         // </Cameras> -------------------------------------------------------------
