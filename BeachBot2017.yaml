@@ -59,6 +59,16 @@ Children:
           value: '0'
       Base: Analog Output
       Name: LEDSelection
+    - Children: []
+      Properties:
+        Output Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '0'
+          name: Output Channel (Digital)
+          validators: *id002
+          value: '6'
+      Base: Digital Output
+      Name: DyingGreenSuns
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -1619,6 +1629,42 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command Group
     Name: GearDropOff
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Frills}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id029 []
+        name: Parameter presets
+        validators: null
+        value: *id029
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: DriveCamVisionOn
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Frills}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id030 []
+        name: Parameter presets
+        validators: null
+        value: *id030
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: DriveCamVisionOff
   Properties: {}
   Base: Commands
   Name: Commands
