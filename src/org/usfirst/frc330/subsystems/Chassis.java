@@ -219,6 +219,26 @@ public class Chassis extends Subsystem {
 			public double get() { return imu.getRoll(); }  		
     	};  
     	CSVLogger.getInstance().add("ChassisRoll", temp);
+    	
+    	temp = new CSVLoggable(true) {
+			public double get() { return getNextWaypointNumber(); }  		
+    	};  
+    	CSVLogger.getInstance().add("NextWaypointNumber", temp);
+    	
+    	temp = new CSVLoggable(true) {
+			public double get() { return getNextWaypoint().getX(); }  		
+    	};  
+    	CSVLogger.getInstance().add("GoalWaypointX", temp);
+    	
+    	temp = new CSVLoggable(true) {
+			public double get() { return getNextWaypoint().getY(); }  		
+    	};  
+    	CSVLogger.getInstance().add("GoalWaypointY", temp);
+    	
+    	temp = new CSVLoggable(true) {
+			public double get() { return getNextWaypoint().getHeading(); }  		
+    	};  
+    	CSVLogger.getInstance().add("GoalWaypointAngle", temp);
     }
 
     public void initDefaultCommand() {
@@ -374,7 +394,6 @@ public class Chassis extends Subsystem {
     
     private void drive(double left, double right)
     {
-        
         leftDrive1.set(-left);
         leftDrive2.set(-left);
         leftDrive3.set(-left);
@@ -466,15 +485,18 @@ public class Chassis extends Subsystem {
     	return 37.5*(pressureSensor.getAverageVoltage()- 0.5);
     }
     
+    //Path methods
 	ArrayList<Waypoint> path;
 	int currentWaypoint = 0;
 	
 	public void setPath(ArrayList<Waypoint> path) {
+		if ((path == null)) {
+			Logger.getInstance().println("Null path in setPath", Severity.ERROR);
+			Logger.getInstance().printStackTrace(new NullPointerException());
+		}
 		this.path = path;
 		currentWaypoint = 0;
 	}
-	
-
 
 	public int getNextWaypointNumber() {
 		return currentWaypoint;
