@@ -105,8 +105,10 @@ public class SD_Shoot extends BBCommand {
         	hoodLocation = SmartDashboard.getNumber("ShooterHoodLocation", ShooterConst.DEFAULT.getHoodLocation());
         	settingsUpdated = true;
         }
-    	settings = new TalonPIDSettings(p,i,d,f,rampRate, targetRPM, tolerance, hoodLocation);
-    	Robot.shooter.setShooterSettings(settings);
+        if (settingsUpdated) {
+	    	settings = new TalonPIDSettings(p,i,d,f,rampRate, targetRPM, tolerance, hoodLocation);
+	    	Robot.shooter.setShooterSettings(settings);
+        }
     	
     }
 
