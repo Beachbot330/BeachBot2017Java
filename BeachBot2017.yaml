@@ -364,9 +364,29 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id013
+          value: '3'
+      Base: CAN Talon
+      Name: Shooter2
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id012
+          default: '2'
+          name: CAN ID
+          validators: *id013
           value: '4'
       Base: CAN Talon
       Name: Gate
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id012
+          default: '2'
+          name: CAN ID
+          validators: *id013
+          value: '5'
+      Base: CAN Talon
+      Name: Gate2
     - Children: []
       Properties:
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
@@ -1639,10 +1659,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Frills}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id029 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id029
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1657,10 +1677,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Frills}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id030 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id030
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1669,7 +1689,7 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\micro\workspace',
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Joe\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: ..\}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
@@ -1688,7 +1708,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\micro\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Joe\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: .\}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}

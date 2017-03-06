@@ -67,7 +67,9 @@ public class RobotMap {
     public static AHRS chassisImu;
     public static BBSolenoid shooterClimberBrake;
     public static CANTalon shooterShooter;
+    public static CANTalon shooterShooter2;
     public static CANTalon shooterGate;
+    public static CANTalon shooterGate2;
     public static Servo shooterHood1;
     public static Servo shooterHood2;
     public static BBSolenoid pickupWings;
@@ -149,8 +151,14 @@ public class RobotMap {
         shooterShooter = new CANTalon(2);
         LiveWindow.addActuator("Shooter", "Shooter", shooterShooter);
         
+        shooterShooter2 = new CANTalon(3);
+        LiveWindow.addActuator("Shooter", "Shooter2", shooterShooter2);
+        
         shooterGate = new CANTalon(4);
         LiveWindow.addActuator("Shooter", "Gate", shooterGate);
+        
+        shooterGate2 = new CANTalon(5);
+        LiveWindow.addActuator("Shooter", "Gate2", shooterGate2);
         
         shooterHood1 = new Servo(8);
         LiveWindow.addActuator("Shooter", "Hood1", shooterHood1);
