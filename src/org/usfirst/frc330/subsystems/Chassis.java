@@ -220,25 +220,14 @@ public class Chassis extends Subsystem {
     	};  
     	CSVLogger.getInstance().add("ChassisRoll", temp);
     	
-    	/*temp = new CSVLoggable(true) {
-			public double get() { return getNextWaypointNumber(); }  		
+    	temp = new CSVLoggable(true) {
+			public double get() { 
+				if (path == null) 
+					return -1;
+				return getNextWaypointNumber(); }  		
     	};  
     	CSVLogger.getInstance().add("NextWaypointNumber", temp);
     	
-    	temp = new CSVLoggable(true) {
-			public double get() { return getNextWaypoint().getX(); }  		
-    	};  
-    	CSVLogger.getInstance().add("GoalWaypointX", temp);
-    	
-    	temp = new CSVLoggable(true) {
-			public double get() { return getNextWaypoint().getY(); }  		
-    	};  
-    	CSVLogger.getInstance().add("GoalWaypointY", temp);
-    	
-    	temp = new CSVLoggable(true) {
-			public double get() { return getNextWaypoint().getHeading(); }  		
-    	};  
-    	CSVLogger.getInstance().add("GoalWaypointAngle", temp);*/
     }
 
     public void initDefaultCommand() {
@@ -510,6 +499,10 @@ public class Chassis extends Subsystem {
 		if (currentWaypoint + 1 < path.size()) {
 			currentWaypoint++;
 		}
+		else {
+			Logger.getInstance().println("Attempt to increment waypoint past path", Severity.ERROR);
+			Logger.getInstance().printStackTrace(new IndexOutOfBoundsException());
+		}
 	}
 	
 	public double getDistanceToEnd() {
@@ -575,4 +568,3 @@ public class Chassis extends Subsystem {
 		return path.size()-1;
 	}
 }
-
