@@ -220,7 +220,7 @@ public class Chassis extends Subsystem {
     	};  
     	CSVLogger.getInstance().add("ChassisRoll", temp);
     	
-    	temp = new CSVLoggable(true) {
+    	/*temp = new CSVLoggable(true) {
 			public double get() { return getNextWaypointNumber(); }  		
     	};  
     	CSVLogger.getInstance().add("NextWaypointNumber", temp);
@@ -238,7 +238,7 @@ public class Chassis extends Subsystem {
     	temp = new CSVLoggable(true) {
 			public double get() { return getNextWaypoint().getHeading(); }  		
     	};  
-    	CSVLogger.getInstance().add("GoalWaypointAngle", temp);
+    	CSVLogger.getInstance().add("GoalWaypointAngle", temp);*/
     }
 
     public void initDefaultCommand() {
