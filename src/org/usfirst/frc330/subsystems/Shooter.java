@@ -62,10 +62,11 @@ public class Shooter extends Subsystem {
     public Shooter() {
 		shooter.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		shooter.enableBrakeMode(false);
-        shooter.reverseSensor(false);
-        shooter.configNominalOutputVoltage(+0.0f, -0.0f);
-        shooter.configPeakOutputVoltage(+12.0f, -3.0f);
-        shooter.changeControlMode(TalonControlMode.Speed);
+        shooter.reverseOutput(true);
+		shooter.reverseSensor(true);
+        //shooter.configNominalOutputVoltage(+0.0f, -0.0f);
+        shooter.configPeakOutputVoltage(+3.0f, -12.0f);
+        //shooter.changeControlMode(TalonControlMode.Speed);
         shooter.setPID(shooterSettings.getP(), shooterSettings.getI(), shooterSettings.getD(), shooterSettings.getF(), 0, shooterSettings.getRampRate(), 0);
         
     	shooter2.changeControlMode(TalonControlMode.Follower);
@@ -104,10 +105,11 @@ public class Shooter extends Subsystem {
 
 		gate.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		gate.enableBrakeMode(false);
+		gate.reverseOutput(false);
         gate.reverseSensor(false);
-        gate.configNominalOutputVoltage(+0.0f, -0.0f);
+        //gate.configNominalOutputVoltage(+0.0f, -0.0f);
         gate.configPeakOutputVoltage(+12.0f, 0.0f);
-        gate.changeControlMode(TalonControlMode.Speed);
+        //gate.changeControlMode(TalonControlMode.Speed);
         gate.setPID(gateSettings.getP(), gateSettings.getI(), gateSettings.getD(), gateSettings.getF(), 0, gateSettings.getRampRate(), 0);
         
     	gate2.changeControlMode(TalonControlMode.Follower);
@@ -149,12 +151,14 @@ public class Shooter extends Subsystem {
     }
     
     public void enableShooter() {
+    	shooter.changeControlMode(TalonControlMode.Speed);
     	shooter.set(shooterSettings.getTargetRPM());
-    	shooter.enableControl();
+    	//shooter.enableControl();
+    	shooter.enable();
     }
     
     public void disableShooter() {
-    	shooter.disableControl();
+    	shooter.disable();
     }
     
     public void stopShooter() {
@@ -173,12 +177,13 @@ public class Shooter extends Subsystem {
     }
     
     public void enableGate() {
+    	gate.changeControlMode(TalonControlMode.Speed);
     	gate.set(gateSettings.getTargetRPM());
-    	gate.enableControl();
+    	gate.enable();
     }
     
     public void disableGate() {
-    	gate.disableControl();
+    	gate.disable();
     }
     
     public void stopGate() {

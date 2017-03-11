@@ -95,7 +95,7 @@ public class RobotMap {
         frillspracticeRobot = new DigitalInput(0);
         LiveWindow.addSensor("Frills", "practiceRobot", frillspracticeRobot);
         
-        frillsPowerDistPanel = new PowerDistributionPanel(0);
+        frillsPowerDistPanel = new PowerDistributionPanel(11);
         LiveWindow.addSensor("Frills", "PowerDistPanel", frillsPowerDistPanel);
         
         frillsgreenLEDs = new DigitalOutput(8);
