@@ -120,6 +120,11 @@ public class Robot extends BBIterativeRobot {
 		Robot.pickup.gearPickupUp();
 		Robot.pickup.gearRelease();
 		Robot.pickup.wingsClosed();
+		Robot.shooter.stopGate();
+		Robot.shooter.stopShooter();
+		Robot.pickup.hopperStop();
+		Robot.pickup.pickupOff();
+		Robot.chassis.stopDrive();
     }
 
     public void disabledPeriodic() {
