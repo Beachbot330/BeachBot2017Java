@@ -49,7 +49,6 @@ public class PickupGear extends BBCommandGroup {
  
     	// move pickup into position
     	addSequential(new GearPickupDown());
-    	addSequential(new WaitCommand(0.7)); //reduce time
     	
     	// Turn on Pickup
     	addSequential(new PickupOn());
