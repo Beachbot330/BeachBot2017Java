@@ -40,7 +40,7 @@ public class GateOn extends BBCommand {
     protected void initialize() {
     	Robot.shooter.climberUnlock();
     	//Robot.shooter.setGateSettings(ShooterConst.GATE);
-    	Robot.shooter.enableGate();
+    	Robot.shooter.enableGateForward();
     }
 
     // Called repeatedly when this Command is scheduled to run

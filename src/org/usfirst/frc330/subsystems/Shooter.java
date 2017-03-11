@@ -176,9 +176,15 @@ public class Shooter extends Subsystem {
     	gate.setPID(settings.getP(), settings.getI(), settings.getD(), settings.getF(), 0, settings.getRampRate(), 0);
     }
     
-    public void enableGate() {
+    public void enableGateForward() {
     	gate.changeControlMode(TalonControlMode.Speed);
     	gate.set(gateSettings.getTargetRPM());
+    	gate.enable();
+    }
+    
+    public void enableGateReverse() {
+    	gate.changeControlMode(TalonControlMode.PercentVbus);
+    	gate.set(ShooterConst.GATE_REVERSE_PERCENT);
     	gate.enable();
     }
     

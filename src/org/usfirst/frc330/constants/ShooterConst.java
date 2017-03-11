@@ -10,5 +10,6 @@ public class ShooterConst {
 	public static final TalonPIDSettings DEFAULT     = CLOSE;
 	
 	public static final TalonPIDSettings GATE        = new TalonPIDSettings(0.03, 0.0, 0.0, 0.045, 0.000, 1000,  100.0, 0.0);   //WAG
+	public static final double GATE_REVERSE_PERCENT = 10.0;
 	
 }

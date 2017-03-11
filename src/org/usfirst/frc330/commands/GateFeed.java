@@ -43,14 +43,14 @@ public class GateFeed extends BBCommand {
     	Robot.shooter.climberUnlock();
     	Robot.shooter.setGateSettings(ShooterConst.GATE);
     	if (!Robot.shooter.isShooterAtSpeed()) {
-    		Robot.shooter.enableGate();
+    		Robot.shooter.enableGateForward();
     		gateState = true;
     	}
     }
     
     protected void execute() {
     	if (Robot.shooter.isShooterAtSpeed() && gateState == false) {
-    		Robot.shooter.enableGate();
+    		Robot.shooter.enableGateForward();
     		gateState = true; 
     	}
     	else if (!Robot.shooter.isShooterAtSpeed() && gateState == true) {
