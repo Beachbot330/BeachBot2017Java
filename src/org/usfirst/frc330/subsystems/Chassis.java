@@ -75,6 +75,7 @@ public class Chassis extends Subsystem {
     int     ctrRollOver  = 0;
     boolean fFirstUse    = true;
     double  left, right;
+    private boolean m_climbing = false;
     
     public MultiPIDController gyroPID, leftDrivePID, rightDrivePID;
     private DummyPIDOutput gyroOutput, leftDriveOutput, rightDriveOutput;
@@ -566,5 +567,13 @@ public class Chassis extends Subsystem {
 	
 	public int getLastWaypointNumber() {
 		return path.size()-1;
+	}
+
+	public void setClimbing(boolean climbing) {
+		m_climbing = climbing;
+	}
+	
+	public boolean getClimbing(){
+		return m_climbing;
 	}
 }
