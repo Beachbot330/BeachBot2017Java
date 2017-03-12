@@ -73,6 +73,7 @@ public class Shooter extends Subsystem {
     	shooter2.changeControlMode(TalonControlMode.Follower);
     	shooter2.set(shooter.getDeviceID());
     	shooter2.reverseOutput(true);
+    	shooter2.enableBrakeMode(false);
     	
     	CSVLoggable temp = new CSVLoggable(false) {
 			public double get() { return shooter.getSetpoint(); }
@@ -116,6 +117,7 @@ public class Shooter extends Subsystem {
     	gate2.changeControlMode(TalonControlMode.Follower);
     	gate2.set(gate.getDeviceID());
     	gate2.reverseOutput(true);
+    	gate2.enableBrakeMode(false);
     	
     	temp = new CSVLoggable(false) {
 			public double get() { return gate.getSetpoint(); }
