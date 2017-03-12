@@ -130,6 +130,16 @@ public class Shooter extends Subsystem {
     	};
     	CSVLogger.getInstance().add("GateRPM", temp);
     	
+    	temp = new CSVLoggable(false) {
+			public double get() { return gate.getOutputVoltage(); }
+    	};
+    	CSVLogger.getInstance().add("GateVoltage", temp);
+    	
+    	temp = new CSVLoggable(false) {
+			public double get() { return gate.getOutputCurrent(); }
+    	};
+    	CSVLogger.getInstance().add("GateCurrent", temp);
+    	
         
     }
 
