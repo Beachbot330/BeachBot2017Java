@@ -70,6 +70,10 @@ public class Pickup extends Subsystem {
     	pickup.set(PickupConst.PICKUP_SPEED);
     }
     
+    public void pickupOn(double speed) {
+    	pickup.set(speed);
+    }
+    
     public void pickupReverse() {
     	pickup.set(PickupConst.PICKUP_REVERSE_SPEED);
     }
@@ -92,10 +96,13 @@ public class Pickup extends Subsystem {
     
     public void hopperAgitate() {
     	hopper.set(PickupConst.HOPPER_AGITATE_SPEED);
-
     }
     
-    public void hoppedFeed() {
+	public void hopperAgitateWhileShooting() {
+		hopper.set(PickupConst.HOPPER_AGITATE_SHOOT_SPEED);
+	}
+    
+    public void hopperFeed() {
     	hopper.set(PickupConst.HOPPER_FEED_SPEED);
     }
     

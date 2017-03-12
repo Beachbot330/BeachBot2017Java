@@ -80,7 +80,7 @@ public class Shooter extends Subsystem {
     	};
     	CSVLogger.getInstance().add("ShooterTargetRPM", temp);
     	
-    	temp = new CSVLoggable(false) {
+    	temp = new CSVLoggable(true) {
 			public double get() { return shooter.getSpeed(); }
     	};
     	CSVLogger.getInstance().add("ShooterRPM", temp);
@@ -117,7 +117,7 @@ public class Shooter extends Subsystem {
     	gate2.changeControlMode(TalonControlMode.Follower);
     	gate2.set(gate.getDeviceID());
     	gate2.reverseOutput(true);
-    	gate2.enableBrakeMode(false);
+    	gate.enableBrakeMode(false);
     	
     	temp = new CSVLoggable(false) {
 			public double get() { return gate.getSetpoint(); }

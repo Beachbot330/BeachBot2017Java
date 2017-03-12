@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.BBCommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
 import org.usfirst.frc330.commands.*;
+import org.usfirst.frc330.constants.PickupConst;
 import org.usfirst.frc330.subsystems.*;
 
 /**
@@ -54,12 +55,14 @@ public class PrepareToShoot extends BBCommandGroup {
     	addSequential(new ShooterStart());
     	
     	//Feed balls to the gate
-    	addSequential(new GearPickupDown());
-    	addSequential(new HopperFeed());
+    	addSequential(new GearPickupUp());
     	
     	//Delay and then use pickup to feed
     	addSequential(new WaitCommand(0.5));
-    	addSequential(new PickupReverse());
+    	//addSequential(new PickupReverse());
+    	addSequential(new PickupOn(PickupConst.PICKUP_WHILE_SHOOTING));
+    	
+    	addSequential(new HopperFeed());
     	
     } 
 }
