@@ -110,7 +110,7 @@ public class Shooter extends Subsystem {
 		gate.reverseOutput(false);
         gate.reverseSensor(false);
         //gate.configNominalOutputVoltage(+0.0f, -0.0f);
-        gate.configPeakOutputVoltage(+12.0f, 0.0f);
+        gate.configPeakOutputVoltage(+12.0f,-12.0f);
         //gate.changeControlMode(TalonControlMode.Speed);
         gate.setPID(gateSettings.getP(), gateSettings.getI(), gateSettings.getD(), gateSettings.getF(), 0, gateSettings.getRampRate(), 0);
         
@@ -173,33 +173,6 @@ public class Shooter extends Subsystem {
     	return (Math.abs(shooter.getSpeed() - shooterSettings.getTargetRPM()) < shooterSettings.getTolerance());
     }
     
-    public void setGateSettings(TalonPIDSettings settings) {
-    	gate.disableControl();
-    	Logger.getInstance().println("Changing Gate Settings to: " + settings, Severity.INFO);
-    	this.gateSettings = settings;
-    	gate.setPID(settings.getP(), settings.getI(), settings.getD(), settings.getF(), 0, settings.getRampRate(), 0);
-    }
-    
-    public void enableGateForward() {
-    	gate.changeControlMode(TalonControlMode.Speed);
-    	gate.set(gateSettings.getTargetRPM());
-    	gate.enable();
-    }
-    
-    public void enableGateReverse() {
-    	gate.changeControlMode(TalonControlMode.PercentVbus);
-    	gate.set(ShooterConst.GATE_REVERSE_PERCENT);
-    	gate.enable();
-    }
-    
-    public void disableGate() {
-    	gate.disable();
-    }
-    
-    public void stopGate() {
-    	gate.setSetpoint(0);
-    }
-    
 	public void climberLock() {
 		climberBrake.set(false);	
 	}
@@ -233,5 +206,35 @@ public class Shooter extends Subsystem {
 		hood1.set(1.0);
 		hood2.set(0.0);
 	}
+
+
+	//Gate Methods
+	public void setGateSettings(TalonPIDSettings settings) {
+    	Logger.getInstance().println("Changing Gate Settings to: " + settings, Severity.INFO);
+    	this.gateSettings = settings;
+    	gate.setPID(settings.getP(), settings.getI(), settings.getD(), settings.getF(), 0, settings.getRampRate(), 0);
+    }
+    
+    public void enableGate() {
+    	gate.changeControlMode(TalonControlMode.Speed);
+    	gate.set(gateSettings.getTargetRPM());
+    	gate.enable();
+    }
+    
+    public void enableGateReverse() {
+    	gate.changeControlMode(TalonControlMode.PercentVbus);
+    	gate.set(ShooterConst.GATE_REVERSE_PERCENT);
+    	gate.enable();
+    }
+    
+    public void disableGate() {
+    	gate.disable();
+    }
+    
+    public void stopGate() {
+    	gate.changeControlMode(TalonControlMode.PercentVbus);
+    	gate.set(0);
+    }
+	
 }
 
