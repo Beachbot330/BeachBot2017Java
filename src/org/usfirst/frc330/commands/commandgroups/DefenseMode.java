@@ -59,7 +59,7 @@ public class DefenseMode extends BBCommandGroup {
         addSequential(new GearPickupUp());
         
         //Wait to settle
-        addSequential(new WaitCommand(0.5));
+        addSequential(new WaitCommand(0.7));
         
         //Turn off pickup
         addSequential(new PickupOff());

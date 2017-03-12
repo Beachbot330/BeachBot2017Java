@@ -55,8 +55,11 @@ public class PrepareToShoot extends BBCommandGroup {
     	
     	//Feed balls to the gate
     	addSequential(new GearPickupDown());
-    	addSequential(new PickupReverse());
     	addSequential(new HopperFeed());
+    	
+    	//Delay and then use pickup to feed
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new PickupReverse());
     	
     } 
 }

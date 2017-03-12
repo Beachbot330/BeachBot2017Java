@@ -125,6 +125,7 @@ public class Robot extends BBIterativeRobot {
 		Robot.pickup.hopperStop();
 		Robot.pickup.pickupOff();
 		Robot.chassis.stopDrive();
+		Robot.shooter.setHoodAngle(0.98);
     }
 
     public void disabledPeriodic() {

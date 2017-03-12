@@ -209,18 +209,27 @@ public class Shooter extends Subsystem {
 	public void setHoodAngle(double angle){
 		if(angle>1.0){
 			hood1.set(1.0);
+			hood2.set(0);
 			Logger.getInstance().println("Hood angle set too low (>1.0), using 1.0 instead", Logger.Severity.WARNING);
 		}
 		else if (angle < ShooterConst.MIN_HOOD_ANGLE){
 			hood1.set(ShooterConst.MIN_HOOD_ANGLE);
+			hood2.set(1-ShooterConst.MIN_HOOD_ANGLE);
 			Logger.getInstance().println("Hood angle set too high (<min), using " + ShooterConst.MIN_HOOD_ANGLE + " instead", Logger.Severity.WARNING);
 		}
 		else
 			hood1.set(angle); // angle from 0.0 to 1.0
+			hood2.set(1-angle);
 	}
 	
 	public double getHoodAngle(){
 		return hood1.get();
+	}
+
+
+	public void servoCal() {
+		hood1.set(1.0);
+		hood2.set(0.0);
 	}
 }
 
