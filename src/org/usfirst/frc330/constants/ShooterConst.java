@@ -16,5 +16,5 @@ public class ShooterConst {
 	public static final double MIN_HOOD_ANGLE 			= 0.84; //AP 3-11
 	
 	//Climbing																// P     I     D     F       rampRate  RPM    tol     Hood
-	public static final TalonPIDSettings CLIMB        	= new TalonPIDSettings(0.5, 0.0,  0.0,  0.045,  0.000,    400,  100.0,  0.0);   //AP 3-12
+	public static final TalonPIDSettings CLIMB        	= new TalonPIDSettings(1.0, 0.0,  0.0,  0.045,  0.000,    400,  100.0,  0.0);   //AP 3-12
 }

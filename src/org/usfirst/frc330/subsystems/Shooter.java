@@ -130,12 +130,12 @@ public class Shooter extends Subsystem {
     	};
     	CSVLogger.getInstance().add("GateRPM", temp);
     	
-    	temp = new CSVLoggable(false) {
+    	temp = new CSVLoggable(true) {
 			public double get() { return gate.getOutputVoltage(); }
     	};
     	CSVLogger.getInstance().add("GateVoltage", temp);
     	
-    	temp = new CSVLoggable(false) {
+    	temp = new CSVLoggable(true) {
 			public double get() { return gate.getOutputCurrent(); }
     	};
     	CSVLogger.getInstance().add("GateCurrent", temp);
@@ -266,6 +266,12 @@ public class Shooter extends Subsystem {
     	Logger.getInstance().println("Changing Gate Settings to: " + settings, Severity.INFO);
     	this.gateSettings = settings;
     	gate.setPID(settings.getP(), settings.getI(), settings.getD(), settings.getF(), 0, settings.getRampRate(), 0);
+    }
+	
+	public void enableGateClimbMAX() {
+    	gate.changeControlMode(TalonControlMode.PercentVbus);
+    	gate.set(1.0);
+    	gate.enable();
     }
 	
 	public void enableGateClimb() {

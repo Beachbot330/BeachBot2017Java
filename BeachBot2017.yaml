@@ -737,13 +737,13 @@ Children:
           name: Command
           type: Command
           validators: *id024
-          value: ClimberUnlock
+          value: DriverClimberUnlock
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id025
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
       Base: Joystick Button
       Name: ReleaseClimberLock_3
     Properties:
@@ -1827,6 +1827,42 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: ServoCal
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Shooter}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id029 []
+        name: Parameter presets
+        validators: null
+        value: *id029
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: DriverClimberUnlock
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Pickup}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id030 []
+        name: Parameter presets
+        validators: null
+        value: *id030
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: ConditionalGearRelease
   Properties: {}
   Base: Commands
   Name: Commands
