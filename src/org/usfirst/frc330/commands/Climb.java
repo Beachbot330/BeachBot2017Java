@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.BBCommand;
 import org.usfirst.frc330.Robot;
 import org.usfirst.frc330.constants.ShooterConst;
 import org.usfirst.frc330.subsystems.Frills;
+import org.usfirst.frc330.util.Logger;
 
 /**
  *
@@ -62,6 +63,7 @@ public class Climb extends BBCommand {
     			Robot.pickup.setClimbing(true);
     			Robot.frills.setDecorativeStyleLED(Frills.Style.OTHER2);
     		}
+    		Logger.getInstance().println("Climber Current " + Robot.shooter.getGateCurrent());
     	}
     	else{
     		if(climbing){

@@ -280,5 +280,9 @@ public class Shooter extends Subsystem {
     	gate.enable();
     }
 	
+	public double getGateCurrent(){
+		return gate.getOutputCurrent();
+	}
+	
 }
 
