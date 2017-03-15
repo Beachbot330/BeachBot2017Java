@@ -60,7 +60,7 @@ public class PrepareToShoot extends BBCommandGroup {
     	//Delay and then use pickup to feed
     	addSequential(new WaitCommand(0.5));
     	//addSequential(new PickupReverse());
-    	addSequential(new PickupOn(PickupConst.PICKUP_WHILE_SHOOTING));
+    	//addSequential(new PickupOn(PickupConst.PICKUP_WHILE_SHOOTING));
     	
     	addSequential(new HopperFeed());
     	

@@ -4,10 +4,10 @@ public class PickupConst {
 	
 	public static final double PICKUP_SPEED 				= 1.0;	    //AP 3-10
 	public static final double PICKUP_REVERSE_SPEED 		= -1.0;		//AP 3-10
-	public static final double PICKUP_WHILE_SHOOTING 		= 0.25;	//AP 3-11
+	public static final double PICKUP_WHILE_SHOOTING 		= -0.25;	//AP 3-11
 	
 	public static final double HOPPER_AGITATE_SPEED 		= -0.6;		//AP 2-21
-	public static final double HOPPER_AGITATE_SHOOT_SPEED 	= -0.2;     //AP 3-11
+	public static final double HOPPER_AGITATE_SHOOT_SPEED 	= -0.6;     //AP 3-11
 	public static final double HOPPER_FEED_SPEED 			= 0.7;		//AP 2-21
 	public static final double HOPPER_PULSE_INTERVAL 		= 3.0;		// AP 3-11 pulse interval in seconds
 	public static final double HOPPER_PULSE_DURATION 		= 0.2;		// AP 3-11 pulse duration in seconds
