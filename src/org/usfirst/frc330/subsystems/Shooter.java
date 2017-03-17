@@ -170,15 +170,18 @@ public class Shooter extends Subsystem {
 	    	shooter.changeControlMode(TalonControlMode.Speed);
 	    	shooter.set(shooterSettings.getTargetRPM());
 	    	shooter.enable();
+	    	Logger.getInstance().println("Shooter Enabled. " + shooterSettings.getTargetRPM() + " RPM");
     	}
     }
     
     public void disableShooter() {
     	shooter.disable();
+    	Logger.getInstance().println("Shooter Disabled");
     }
     
     public void stopShooter() {
     	shooter.set(0);
+    	Logger.getInstance().println("Shooter stopped");
     }
     
     public boolean isShooterAtSpeed() {
@@ -186,11 +189,13 @@ public class Shooter extends Subsystem {
     }
     
 	public void climberLock() {
-		climberBrake.set(false);	
+		climberBrake.set(false);
+		Logger.getInstance().println("Climber Locked");
 	}
 	
 	public void climberUnlock() {
 		climberBrake.set(true);	
+		Logger.getInstance().println("Climber Unlocked");
 	}
 	
 	public void setHoodAngle(double angle){
@@ -207,6 +212,7 @@ public class Shooter extends Subsystem {
 		else
 			hood1.set(angle); // angle from 0.0 to 1.0
 			hood2.set(1-angle);
+			Logger.getInstance().println("Hood angle set to " + angle);
 	}
 	
 	public double getHoodAngle(){
@@ -234,6 +240,7 @@ public class Shooter extends Subsystem {
 	    	gate.changeControlMode(TalonControlMode.Speed);
 	    	gate.set(gateSettings.getTargetRPM());
 	    	gate.enable();
+	    	Logger.getInstance().println("Gate set to " + gateSettings.getTargetRPM() + " RPM");
     	}
     }
     
@@ -242,16 +249,19 @@ public class Shooter extends Subsystem {
 	    	gate.changeControlMode(TalonControlMode.PercentVbus);
 	    	gate.set(ShooterConst.GATE_REVERSE_PERCENT);
 	    	gate.enable();
+	    	Logger.getInstance().println("Gate set to reverse");
     	}
     }
     
     public void disableGate() {
     	gate.disable();
+    	Logger.getInstance().println("Gate Disabled");
     }
     
     public void stopGate() {
     	gate.changeControlMode(TalonControlMode.PercentVbus);
     	gate.set(0);
+    	Logger.getInstance().println("Gate Stoped");
     }
     
     public void setClimbing(boolean climbing) {

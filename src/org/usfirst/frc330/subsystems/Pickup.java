@@ -16,6 +16,7 @@ import org.usfirst.frc330.commands.*;
 import org.usfirst.frc330.constants.PickupConst;
 import org.usfirst.frc330.util.CSVLoggable;
 import org.usfirst.frc330.util.CSVLogger;
+import org.usfirst.frc330.util.Logger;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -75,42 +76,51 @@ public class Pickup extends Subsystem {
     
     public void pickupOff() {
     	pickup.set(0.0);
+    	Logger.getInstance().println("Pickup Off");
     }
     
     public void pickupOn() {
     	pickup.set(PickupConst.PICKUP_SPEED);
+    	Logger.getInstance().println("Pickup On");
     }
     
     public void pickupOn(double speed) {
     	pickup.set(speed);
+    	Logger.getInstance().println("Pickup On");
     }
     
     public void pickupReverse() {
     	pickup.set(PickupConst.PICKUP_REVERSE_SPEED);
+    	Logger.getInstance().println("Pickup Reverse");
     }
     
     public void wingsOpen() {
     	if(!getClimbing())
     		wings.set(true);
+    	Logger.getInstance().println("Wings Open");
     }
     
     public void wingsClosed() {
     	if(!getClimbing())
     		wings.set(false);
+    	Logger.getInstance().println("Wings Closed");
     }
     
     public void gearPickupDown() {
     	if(!getClimbing())
     		lift.set(true);
+    	Logger.getInstance().println("Gear Pickup Down");
     }
     
     public void gearPickupUp() {
     	if(!getClimbing())
     		lift.set(false);
+    	Logger.getInstance().println("Gear Pickup Up");
     }
     
     public void hopperAgitate() {
     	hopper.set(PickupConst.HOPPER_AGITATE_SPEED);
+    	Logger.getInstance().println("Hopper Agitate");
     }
     
 	public void hopperAgitateWhileShooting() {
@@ -125,19 +135,23 @@ public class Pickup extends Subsystem {
     
     public void hopperStop(){
     	hopper.stopMotor();
+    	Logger.getInstance().println("Hopper Stopped");
     }
 
 	public void gearGrab() {
 		pincher.set(true);
+		Logger.getInstance().println("Gear Grabbed");
 	}
 
 	public void gearRelease() {
 		pincher.set(false);
+		Logger.getInstance().println("Gear Released");
+		if (!isGearPresent())
+			Logger.getInstance().println("No gear was present");
 	}
 
 	public boolean isGearPresent() {
 		return  !gearSensor.get();
-		
 	}
 	
 	public void setClimbing(boolean climbing) {
