@@ -44,6 +44,7 @@ public class Climb extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	climbing = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -82,6 +83,7 @@ public class Climb extends BBCommand {
     protected void end() {
     	Robot.shooter.stopGate();
     	ratchetEngaged = false;
+    	climbing = false;
     }
 
     // Called when another command which requires one or more of the same
