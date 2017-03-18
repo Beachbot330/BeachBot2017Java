@@ -51,7 +51,7 @@ public class RobotMap {
     public static PowerDistributionPanel frillsPowerDistPanel;
     public static DigitalOutput frillsgreenLEDs;
     public static AnalogOutput frillsLEDSelection;
-    public static DigitalOutput frillsDyingGreenSuns;
+    public static AnalogOutput frillsDyingBlueSuns;
     public static SpeedController chassisLeftDrive1;
     public static SpeedController chassisLeftDrive2;
     public static SpeedController chassisLeftDrive3;
@@ -103,8 +103,8 @@ public class RobotMap {
         frillsLEDSelection = new AnalogOutput(0);
         LiveWindow.addActuator("Frills", "LEDSelection", frillsLEDSelection);
         
-        frillsDyingGreenSuns = new DigitalOutput(6);
-        LiveWindow.addActuator("Frills", "DyingGreenSuns", frillsDyingGreenSuns);
+        frillsDyingBlueSuns = new AnalogOutput(1);
+        LiveWindow.addActuator("Frills", "DyingBlueSuns", frillsDyingBlueSuns);
         
         chassisLeftDrive1 = new Spark(0);
         LiveWindow.addActuator("Chassis", "LeftDrive1", (Spark) chassisLeftDrive1);
