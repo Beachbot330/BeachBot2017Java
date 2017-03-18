@@ -24,11 +24,12 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SPI.Port;
-import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
 import org.usfirst.frc330.wpilibj.BBDoubleSolenoid;
+import org.usfirst.frc330.wpilibj.BBDualServo;
+import org.usfirst.frc330.wpilibj.BBServo;
 import org.usfirst.frc330.wpilibj.BBSolenoid;
 import org.usfirst.frc330.wpilibj.DualSpeedController;
 
@@ -69,8 +70,9 @@ public class RobotMap {
     public static CANTalon shooterShooter2;
     public static CANTalon shooterGate;
     public static CANTalon shooterGate2;
-    public static Servo shooterHood1;
-    public static Servo shooterHood2;
+    public static BBServo shooterHood1;
+    public static BBServo shooterHood2;
+    public static BBDualServo shooterHood;
     public static BBSolenoid pickupWings;
     public static SpeedController pickupPickup1;
     public static SpeedController pickupPickup2;
@@ -159,11 +161,14 @@ public class RobotMap {
         shooterGate2 = new CANTalon(5);
         LiveWindow.addActuator("Shooter", "Gate2", shooterGate2);
         
-        shooterHood1 = new Servo(8);
+        shooterHood1 = new BBServo(8, false);
         LiveWindow.addActuator("Shooter", "Hood1", shooterHood1);
         
-        shooterHood2 = new Servo(9);
+        shooterHood2 = new BBServo(9, false);
         LiveWindow.addActuator("Shooter", "Hood2", shooterHood2);
+        
+        shooterHood = new BBDualServo(shooterHood1, shooterHood1);
+        LiveWindow.addActuator("Shooter", "Hood", shooterHood);
         
         pickupWings = new BBSolenoid(0, 6);
         LiveWindow.addActuator("Pickup", "Wings", pickupWings);
