@@ -129,6 +129,7 @@ public class Robot extends BBIterativeRobot {
 		Robot.pickup.pickupOff();
 		Robot.chassis.stopDrive();
 		Robot.shooter.setHoodAngle(0.98);
+		Robot.frills.extinguishDyingSun();
     }
 
     public void disabledPeriodic() {
@@ -173,6 +174,7 @@ public class Robot extends BBIterativeRobot {
     public void teleopInit() {
     	Logger.getInstance().println("Teleop Init", true);
     	Logger.getInstance().updateDate();
+    	Robot.frills.dimBlueLEDs();
     	buzzer.enable(1.25);
     	Robot.shooter.climberUnlock();
         // This makes sure that the autonomous stops running when

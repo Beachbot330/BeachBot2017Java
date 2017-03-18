@@ -227,6 +227,10 @@ public class Frills extends Subsystem {
     	dyingBlueSuns.setVoltage(0.0);
     }
     
+    public void dimBlueLEDs() {
+		dyingBlueSuns.setVoltage(0.5);
+	}
+    
     //Camera Functions ----------------------------------------------------
     public void initDriverCamera(){
     	if (!driverCam.setResolution(160, 120))
@@ -262,5 +266,7 @@ public class Frills extends Subsystem {
 	public boolean getClimbing(){
 		return m_climbing;
 	}
+
+	
 }
 
