@@ -84,8 +84,8 @@ public class  TurnGyroAbs extends BBCommand {
     	maxOutput += maxOutputStep;
     	if (maxOutput >= maxOutputMax) 
     		maxOutput = maxOutputMax;
-    	Robot.chassis.leftDrivePID.setMaxOutput(maxOutput);
-        Robot.chassis.rightDrivePID.setMaxOutput(maxOutput);
+    	Robot.chassis.gyroPID.setMaxOutput(maxOutput);
+        Robot.chassis.gyroPID.setMaxOutput(maxOutput);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
