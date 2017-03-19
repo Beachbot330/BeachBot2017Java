@@ -108,6 +108,9 @@ public class Robot extends BBIterativeRobot {
         autoProgram = new SendableChooser<Command>();
         autoProgram.addDefault("Do Nothing", new DoNothing());
         autoProgram.addObject("Z_JoeTest", new JoeTest());
+        autoProgram.addObject("center_straight", new CenterDropOffGear());
+        autoProgram.addObject("TurnTest", new Turntest());
+        autoProgram.addObject("ShootTest", new ShootTest());
         
         SmartDashboard.putData("Auto Program", autoProgram);
         
