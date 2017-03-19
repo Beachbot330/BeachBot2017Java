@@ -13,9 +13,9 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 /**
  *
  */
-public class CenterDropOffGear extends BBCommandGroup {
+public class LeftBoilerGearShoot extends BBCommandGroup {
 
-    public CenterDropOffGear() {
+    public LeftBoilerGearShoot() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,25 +34,29 @@ public class CenterDropOffGear extends BBCommandGroup {
         // arm.
     	
     	addParallel(new GearGrab());
+    	addParallel(new ShiftLow()); //change to ShiftHigh
+    	addSequential(new WaitCommand(2));
+    	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
+    	addSequential(new DriveWaypoint(0, 84, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive before turn
     	addSequential(new WaitCommand(2));
     	addParallel(new ShiftLow());
-    	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 63, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
+    	//double x, double y, double tolerance, double timeout, PIDGains gains
+    	addSequential(new TurnGyroWaypoint(36, 114, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
+    	addSequential(new DriveWaypoint(36, 114, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive into airship
     	addSequential(new WaitCommand(2));
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(2));
-    	addSequential(new DriveWaypointBackward(0, 44, 3, 1, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh));
-    	addSequential(new WaitCommand(2));
-    	addParallel(new ShiftLow( ));
+    	addParallel(new ShiftLow()); //change to ShiftHigh
+    	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
+    	//DriveDistance(double distance, double tolerance, PIDGains gains)
+    	addSequential(new DriveDistance(-36, 3, ChassisConst.DriveHigh)); //away from airship
+    	addParallel(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(156, 30, 3, 1.5, ChassisConst.GyroTurnLow ));
+    	addSequential(new TurnGyroWaypoint(-84, 18,3, 3, ChassisConst.GyroTurnLow )); //turn to boiler 180
+    	// aim the robot to shoot
     	addSequential(new WaitCommand(2));
-    	//addSequential(new ( ));		aim robot for high shot maybe later
-    	//addParallel(new ( ));			create wing move 1hz maybe later
-    	addSequential(new PrepareToShoot(ShooterConst.CENTER_AUTO));
-    	addSequential(new WaitCommand(1));
     	addSequential(new ShootWithWingsAgitate( ));
-    	
+    	addParallel(new ShiftHigh());
     	
     	
     }
