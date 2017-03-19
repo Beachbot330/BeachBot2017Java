@@ -38,6 +38,8 @@ public class GearRelease extends BBCommand {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.pickup.gearRelease();
+    	Robot.frills.setGreenLEDs(false);
+    	Robot.frills.driverCameraBright();
     }
 
     // Called repeatedly when this Command is scheduled to run

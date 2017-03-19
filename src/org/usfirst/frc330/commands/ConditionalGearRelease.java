@@ -39,6 +39,8 @@ public class ConditionalGearRelease extends BBCommand {
     protected void initialize() {
     	if(!Robot.pickup.isGearPresent()){
     		Robot.pickup.gearRelease();
+    		Robot.frills.setGreenLEDs(false);
+    		Robot.frills.driverCameraBright();
     	}
     }
 

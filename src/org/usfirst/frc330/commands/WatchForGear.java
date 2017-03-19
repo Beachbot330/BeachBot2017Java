@@ -50,6 +50,8 @@ public class WatchForGear extends BBCommand {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.frills.setGreenLEDs(true);
+    	Robot.frills.driverCameraDark();
     }
 
     // Called when another command which requires one or more of the same
