@@ -119,6 +119,7 @@ public class Robot extends BBIterativeRobot {
      */
     public void disabledInit(){
 		Logger.getInstance().println("Disabled Init",true);
+		Scheduler.getInstance().removeAll();
 		Robot.shooter.climberLock();
 		Robot.pickup.gearPickupUp();
 		Robot.pickup.gearRelease();

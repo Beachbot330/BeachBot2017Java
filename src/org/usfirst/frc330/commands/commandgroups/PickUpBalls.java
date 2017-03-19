@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 
 import org.usfirst.frc330.subsystems.*;
 import org.usfirst.frc330.commands.*;
+import org.usfirst.frc330.constants.PickupConst;
 import org.usfirst.frc330.constants.ShooterConst;
 
 /**
@@ -54,10 +55,7 @@ public class PickUpBalls extends BBCommandGroup {
     	//Standard Pickup
     	addSequential(new GearPickupUp());
     	addSequential(new PickupOn());
-    	addSequential(new HopperAgitate());
-    	
-    	//Shooter Pickup
-    	addSequential(new GateReverse());
-    	addSequential(new ShooterStart(ShooterConst.RECIRCULATE));
+    	addSequential(new HopperSet(PickupConst.HOPPER_PICKUP_SPEED));
+
     } 
 }

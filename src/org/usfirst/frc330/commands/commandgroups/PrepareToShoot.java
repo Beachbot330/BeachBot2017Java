@@ -62,7 +62,7 @@ public class PrepareToShoot extends BBCommandGroup {
     	//addSequential(new PickupReverse());
     	//addSequential(new PickupOn(PickupConst.PICKUP_WHILE_SHOOTING));
     	
-    	addSequential(new HopperFeed());
+    	addSequential(new HopperSet(PickupConst.HOPPER_FEED_SPEED, PickupConst.HOPPER_FEED_TIMEOUT));
     	
     } 
 }

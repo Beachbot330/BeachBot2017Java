@@ -48,12 +48,12 @@ public class DefenseMode extends BBCommandGroup {
  
     	// Pickup on during collapse
     	addSequential(new PickupOn());
-    	addSequential(new HopperAgitate());
     	
     	//Turn off unused motors
     	addSequential(new GateStop());
     	addSequential(new ShooterStop());
     	addSequential(new PickupOff());
+    	addSequential(new HopperStop());
     	
     	// Move gear pickup
         addSequential(new GearPickupUp());
@@ -63,7 +63,6 @@ public class DefenseMode extends BBCommandGroup {
         
         //Turn off pickup
         addSequential(new PickupOff());
-        addSequential(new HopperStop());
 
     } 
 }

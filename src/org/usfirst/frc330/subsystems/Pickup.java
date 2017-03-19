@@ -133,6 +133,11 @@ public class Pickup extends Subsystem {
     		hopper.set(PickupConst.HOPPER_FEED_SPEED);
     }
     
+    public void hopperSet(double speed) {
+    	if(!getClimbing())
+    		hopper.set(speed);
+    }
+    
     public void hopperStop(){
     	hopper.stopMotor();
     	Logger.getInstance().println("Hopper Stopped");
