@@ -111,6 +111,7 @@ public class Robot extends BBIterativeRobot {
         autoProgram.addObject("center_straight", new CenterDropOffGear());
         autoProgram.addObject("TurnTest", new Turntest());
         autoProgram.addObject("ShootTest", new ShootTest());
+        autoProgram.addObject("Shelf Destruct", new TestAuto());
         
         SmartDashboard.putData("Auto Program", autoProgram);
         

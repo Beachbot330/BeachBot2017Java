@@ -35,6 +35,9 @@ public final class ChassisConst {
     public static final PIDGains GyroDriveLow  = new PIDGains(0.010,0,0.000,0,1,1, "GyroDriveLow");
     public static final PIDGains GyroDriveHigh = new PIDGains(0.005,0,0.001,0,1,1, "GyroDriveHigh"); //AP 3-18
     
+    //Turn Camera						double p, double i, double d, double f, double maxOutput, double maxOutputStep, String name
+    public static final PIDGains CAMERA_LOW		= new PIDGains(0.08, 0, 0.0, 0.0, 0.25, 0.05, "CameraTurnLow");
+    
     // Used for Frills for PDP
     public enum Devices {
         DRIVETRAIN_LEFT1 (0),
