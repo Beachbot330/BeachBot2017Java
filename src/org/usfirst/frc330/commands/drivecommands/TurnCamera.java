@@ -52,7 +52,7 @@ public class TurnCamera extends TurnGyroRel {
 	
 	@Override
 	public void execute() {
-		if (Math.abs(getCameraAngle() - angle) > 1.0) {
+		if (Math.abs(getCameraAngle() - angle) > tolerance) {
 			Robot.chassis.gyroPID.setSetpoint(getCameraAngle()+Robot.chassis.getAngle());
 		}
 			

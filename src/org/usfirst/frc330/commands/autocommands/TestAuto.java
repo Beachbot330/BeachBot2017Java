@@ -35,7 +35,7 @@ public class TestAuto extends BBCommandGroup {
     	addSequential(new ShiftLow());
     	addSequential(new WaitCommand(1.0));
     	//String cameraName, double tolerance, int toleranceStableCount, double timeout, boolean stopAtEnd, PIDGains gains
-    	addSequential(new TurnCamera("target", 2.0, 15, 6, true, ChassisConst.CAMERA_LOW));
+    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
     	addSequential(new ExtinguishSun());
     	
     }

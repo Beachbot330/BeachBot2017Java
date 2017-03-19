@@ -27,7 +27,7 @@ public final class ChassisConst {
     //Turn Gyro 
     public static final double rotateProportional 		  = 0.11;
     public static final int    gyroTolerancebuffer        = 5;  //JR 3/20/16
-    public static final double gyroTurnMin				  = 0.2; //JR 3/19/17
+    public static final double gyroTurnMin				  = 0.20; //JR 3/19/17
     
     public static final PIDGains DriveLow	   = new PIDGains(0.100,0,0.000,0,defaultMaxOutput,defaultMaxOutputStep, "DriveLow");
     public static final PIDGains DriveHigh     = new PIDGains(0.050,0,0.050,0,defaultMaxOutput,defaultMaxOutputStep, "DriveHigh"); //AP 3-18
@@ -37,7 +37,7 @@ public final class ChassisConst {
     public static final PIDGains GyroDriveHigh = new PIDGains(0.005,0,0.001,0,1,1, "GyroDriveHigh"); //AP 3-18
     
     //Turn Camera						double p, double i, double d, double f, double maxOutput, double maxOutputStep, String name
-    public static final PIDGains CAMERA_LOW		= new PIDGains(0.08, 0, 0.0, 0.0, 0.25, 0.05, "CameraTurnLow");
+    public static final PIDGains CAMERA_LOW		= new PIDGains(0.009, 0, 0.01, 0.0, 0.15, 0.05, "CameraTurnLow");
     
     // Used for Frills for PDP
     public enum Devices {
