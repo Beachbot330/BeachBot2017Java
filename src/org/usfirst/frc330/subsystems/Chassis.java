@@ -432,7 +432,7 @@ public class Chassis extends Subsystem {
     
     public void pidDriveAuto()
     {
-        double left, right, gyroValue;
+        double left, right, gyroValue, gyroMin;
         if (DriverStation.getInstance().isDisabled())
         {
             stopDrive();
@@ -440,7 +440,11 @@ public class Chassis extends Subsystem {
         else
         {
         	//gyroValue = Math.signum(gyroOutput.getOutput()) * Math.min(Math.abs(gyroOutput.getOutput()) , 0.5);
-        	gyroValue = Math.signum(gyroOutput.getOutput()) * Math.min(Math.abs(gyroOutput.getOutput()) , 1.0);
+        	if (Math.abs(gyroOutput.getOutput()) > 0 && gyroPID.isEnabled() && !leftDrivePID.isEnabled() && !rightDrivePID.isEnabled()) 
+        		gyroMin = ChassisConst.gyroTurnMin * Math.signum(gyroOutput.getOutput());
+        	else
+        		gyroMin = 0;
+        	gyroValue = Math.signum(gyroOutput.getOutput()) * Math.min(Math.abs(gyroOutput.getOutput()+gyroMin) , 1.0);
         	left = this.left+leftDriveOutput.getOutput() + gyroValue;
             right = this.right+rightDriveOutput.getOutput() - gyroValue;
             drive(left, right);

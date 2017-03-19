@@ -26,7 +26,8 @@ public final class ChassisConst {
     
     //Turn Gyro 
     public static final double rotateProportional 		  = 0.11;
-    public static final int    gyroTolerancebuffer        = 5;  //JR 3/20
+    public static final int    gyroTolerancebuffer        = 5;  //JR 3/20/16
+    public static final double gyroTurnMin				  = 0.2; //JR 3/19/17
     
     public static final PIDGains DriveLow	   = new PIDGains(0.100,0,0.000,0,defaultMaxOutput,defaultMaxOutputStep, "DriveLow");
     public static final PIDGains DriveHigh     = new PIDGains(0.050,0,0.050,0,defaultMaxOutput,defaultMaxOutputStep, "DriveHigh"); //AP 3-18
