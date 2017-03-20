@@ -11,6 +11,8 @@
 
 package org.usfirst.frc330.commands;
 import edu.wpi.first.wpilibj.command.BBCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc330.Robot;
 
 /**
@@ -40,6 +42,7 @@ public class DriveCamVisionOff extends BBCommand {
     protected void initialize() {
     	Robot.frills.extinguishDyingSun();
     	Robot.frills.driverCameraBright();
+    	SmartDashboard.putBoolean("shouldHaveGear", false);
     }
 
     // Called repeatedly when this Command is scheduled to run
