@@ -33,6 +33,7 @@ public class RightBoilerGearShoot extends BBCommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
     	addParallel(new ShiftLow()); //change to ShiftHigh
     	addSequential(new WaitCommand(2));
@@ -42,6 +43,7 @@ public class RightBoilerGearShoot extends BBCommandGroup {
     	addParallel(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, PIDGains gains
     	addSequential(new TurnGyroWaypoint(-36, 114, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
+    	addSequential(new WaitCommand(5));
     	addSequential(new DriveWaypoint(-36, 114, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive into airship
     	addSequential(new WaitCommand(2));
     	addSequential(new GearDropOff());
@@ -49,13 +51,15 @@ public class RightBoilerGearShoot extends BBCommandGroup {
     	addParallel(new ShiftLow()); //change to ShiftHigh
     	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
     	//DriveDistance(double distance, double tolerance, PIDGains gains)
+    	addParallel(new IgniteSun());
     	addSequential(new DriveDistance(-36, 3, ChassisConst.DriveHigh)); //away from airship
     	addParallel(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, PIDGains gains
     	addSequential(new TurnGyroWaypoint(84, 18,3, 3, ChassisConst.GyroTurnLow )); //turn to boiler 180
     	// aim the robot to shoot
     	addSequential(new WaitCommand(2));
-    	addSequential(new ShootWithWingsAgitate( ));
+    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
+    	//addSequential(new ShootWithWingsAgitate( ));
     	addParallel(new ShiftHigh());
     	
     	

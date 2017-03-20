@@ -8,6 +8,7 @@ import org.usfirst.frc330.commands.commandgroups.PrepareToShoot;
 import org.usfirst.frc330.commands.commandgroups.ShootWithWingsAgitate;
 import org.usfirst.frc330.commands.drivecommands.DriveDistance;
 import org.usfirst.frc330.commands.drivecommands.DriveWaypoint;
+import org.usfirst.frc330.commands.drivecommands.TurnCamera;
 import org.usfirst.frc330.commands.drivecommands.TurnGyroWaypoint;
 import org.usfirst.frc330.constants.ChassisConst;
 import org.usfirst.frc330.constants.ShooterConst;
@@ -56,7 +57,7 @@ public class NotLeftBoilerGearShoot extends BBCommandGroup {
     	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
     	addSequential(new DriveWaypoint(-36, 63, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to center of driver wall
     	addSequential(new WaitCommand(2));
-    	//aim to boiler
+    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
     	addSequential(new ShootWithWingsAgitate( ));
     	addParallel(new ShiftHigh());
     	

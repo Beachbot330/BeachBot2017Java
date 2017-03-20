@@ -37,20 +37,23 @@ public class LeftBoilerCenterGearShoot extends BBCommandGroup {
     	addSequential(new WaitCommand(2));
     	addParallel(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 65, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //to airship
-    	addSequential(new WaitCommand(2));
+    	addSequential(new DriveWaypoint(0, 72, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //to airship
+    	addSequential(new WaitCommand(0.3));
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(2));
     	addSequential(new DriveWaypointBackward(0, 44, 3, 1, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh)); //away from airship
-    	addSequential(new WaitCommand(2));
+    	addSequential(new WaitCommand(0.5));
     	addParallel(new ShiftLow( ));
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(-156, 30, 3, 1.5, ChassisConst.GyroTurnLow )); // turn to boiler
-    	addSequential(new WaitCommand(2));
+    	addSequential(new TurnGyroWaypoint(-156, 20, 3, 1.5, ChassisConst.GyroTurnLow )); // turn to boiler
+    	addSequential(new WaitCommand(0.3));
     	//addSequential(new ( ));		aim robot for high shot maybe later
     	//addParallel(new ( ));			create wing move 1hz maybe later
     	addSequential(new PrepareToShoot(ShooterConst.CENTER_AUTO)); //spin up agitator and shooter
-    	addSequential(new WaitCommand(1));
+    	addSequential(new WaitCommand(0.3));
+    	addSequential(new IgniteSun());
+    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));;
+    	addSequential(new WaitCommand(0.5));
     	addSequential(new ShootWithWingsAgitate( ));
     	addParallel(new ShiftHigh());
     	

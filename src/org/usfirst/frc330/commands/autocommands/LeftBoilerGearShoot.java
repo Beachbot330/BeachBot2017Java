@@ -33,6 +33,7 @@ public class LeftBoilerGearShoot extends BBCommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
     	addParallel(new ShiftLow()); //change to ShiftHigh
     	addSequential(new WaitCommand(2));
@@ -55,6 +56,8 @@ public class LeftBoilerGearShoot extends BBCommandGroup {
     	addSequential(new TurnGyroWaypoint(-84, 18,3, 3, ChassisConst.GyroTurnLow )); //turn to boiler 180
     	// aim the robot to shoot
     	addSequential(new WaitCommand(2));
+    	addParallel(new IgniteSun());
+    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
     	addSequential(new ShootWithWingsAgitate( ));
     	addParallel(new ShiftHigh());
     	
