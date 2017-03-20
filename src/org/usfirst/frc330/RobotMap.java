@@ -162,10 +162,10 @@ public class RobotMap {
         shooterHood1 = new BBServo(8, false);
         LiveWindow.addActuator("Shooter", "Hood1", shooterHood1);
         
-        shooterHood2 = new BBServo(9, false);
+        shooterHood2 = new BBServo(9, true);
         LiveWindow.addActuator("Shooter", "Hood2", shooterHood2);
         
-        shooterHood = new BBDualServo(shooterHood1, shooterHood1);
+        shooterHood = new BBDualServo(shooterHood1, shooterHood2);
         LiveWindow.addActuator("Shooter", "Hood", shooterHood);
         
         pickupWings = new BBSolenoid(0, 6);
