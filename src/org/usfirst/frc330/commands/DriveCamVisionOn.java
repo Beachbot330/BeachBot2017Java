@@ -41,7 +41,7 @@ public class DriveCamVisionOn extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.frills.driverCameraDark();
+    	//Robot.frills.driverCameraDark();
     	Robot.frills.igniteDyingSun();
     	SmartDashboard.putBoolean("shouldHaveGear", true);
     }
