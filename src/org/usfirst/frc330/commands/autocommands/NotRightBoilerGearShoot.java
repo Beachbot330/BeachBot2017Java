@@ -1,6 +1,8 @@
 package org.usfirst.frc330.commands.autocommands;
 
+import org.usfirst.frc330.commands.DriveCamVisionOn;
 import org.usfirst.frc330.commands.GearGrab;
+import org.usfirst.frc330.commands.IgniteSun;
 import org.usfirst.frc330.commands.ShiftHigh;
 import org.usfirst.frc330.commands.ShiftLow;
 import org.usfirst.frc330.commands.commandgroups.GearDropOff;
@@ -39,15 +41,16 @@ public class NotRightBoilerGearShoot extends BBCommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
     	addParallel(new ShiftLow()); //change to ShitHigh
     	addSequential(new WaitCommand(2));
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 108, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive forward
+    	addSequential(new DriveWaypoint(0, 93, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive forward
     	addSequential(new WaitCommand(2));
-    	addSequential(new TurnGyroWaypoint(24, 132, 3, 1.5, ChassisConst.GyroTurnLow )); //turn to airship
+    	addSequential(new TurnGyroWaypoint(24, 104, 3, 1.5, ChassisConst.GyroTurnLow )); //turn to airship update x
     	addSequential(new WaitCommand(2));
-    	addSequential(new DriveWaypoint(24, 132, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to airship
+    	addSequential(new DriveWaypoint(24, 104, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to airship update x
     	addSequential(new WaitCommand(2));
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(2));
@@ -56,6 +59,7 @@ public class NotRightBoilerGearShoot extends BBCommandGroup {
     	addSequential(new TurnGyroWaypoint(36, 36, 3, 1.5, ChassisConst.GyroTurnLow )); //turn to center of driver wall
     	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
     	addSequential(new DriveWaypoint(36, 36, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to center of driver wall
+    	addParallel(new IgniteSun());
     	addSequential(new WaitCommand(2));
     	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));    	addSequential(new ShootWithWingsAgitate( ));
     	addParallel(new ShiftHigh());

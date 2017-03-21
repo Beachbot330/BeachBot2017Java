@@ -70,8 +70,8 @@ public class RobotMap {
     public static CANTalon shooterShooter2;
     public static CANTalon shooterGate;
     public static CANTalon shooterGate2;
-    public static BBServo shooterHood1;
-    public static BBServo shooterHood2;
+    private static BBServo shooterHood1;
+    private static BBServo shooterHood2;
     public static BBDualServo shooterHood;
     public static BBSolenoid pickupWings;
     public static SpeedController pickupPickup1;

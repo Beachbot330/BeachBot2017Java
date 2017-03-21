@@ -13,9 +13,9 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 /**
  *
  */
-public class LeftBoilerCenterGearShoot extends BBCommandGroup {
+public class RightBoiler40Ball extends BBCommandGroup {
 
-    public LeftBoilerCenterGearShoot() {
+    public RightBoiler40Ball() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -35,29 +35,18 @@ public class LeftBoilerCenterGearShoot extends BBCommandGroup {
     	
     	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
+    	addParallel(new ShiftLow()); //change to ShiftHigh
     	addSequential(new WaitCommand(2));
-    	addParallel(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 72, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
-    	addSequential(new WaitCommand(0.3));
-    	addSequential(new GearDropOff());
-    	addSequential(new WaitCommand(0.3));
-    	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypointBackward(0, 44, 3, 1, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh));
-    	addSequential(new WaitCommand(0.3));
-    	addParallel(new ShiftLow( ));
-    	//double x, double y, double tolerance, double timeout, PIDGains gains
+    	addSequential(new DriveWaypointBackward(0, -85, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
+    	addSequential(new WingsOpen());
+    	//addSequential(new WaitCommand(5));
+    	addParallel(new PrepareToShoot(ShooterConst.RB_KPA));
+    	//TurnGyroRel(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains)
+    	addSequential(new TurnGyroRel(-15, 5, 3, true, ChassisConst.GyroTurnLow));
+    	addSequential(new DriveDistance(9, 3, ChassisConst.DriveLow));
     	addParallel(new IgniteSun());
-    	addSequential(new TurnGyroWaypoint(156, 20, 3, 1.5, ChassisConst.GyroTurnLow ));
-    	addSequential(new WaitCommand(0.3));
-    	//addSequential(new ( ));		aim robot for high shot maybe later
-    	//addParallel(new ( ));			create wing move 1hz maybe late
-    	addSequential(new WaitCommand(0.3));
-    	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
-    	addParallel(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
-    	addSequential(new WaitCommand(1.5));
-    	addSequential(new ShootWithWingsAgitate( ));
-    	addParallel(new ShiftHigh());
+    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
     	
     	
     	
