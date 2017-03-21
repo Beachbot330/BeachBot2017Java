@@ -70,8 +70,8 @@ public class RobotMap {
     public static CANTalon shooterShooter2;
     public static CANTalon shooterGate;
     public static CANTalon shooterGate2;
-    private static BBServo shooterHood1;
-    private static BBServo shooterHood2;
+    public static BBServo shooterHood1;
+    public static BBServo shooterHood2;
     public static BBDualServo shooterHood;
     public static BBSolenoid pickupWings;
     public static SpeedController pickupPickup1;
@@ -162,7 +162,7 @@ public class RobotMap {
         shooterHood1 = new BBServo(8, false);
         LiveWindow.addActuator("Shooter", "Hood1", shooterHood1);
         
-        shooterHood2 = new BBServo(9, true);
+        shooterHood2 = new BBServo(9, false);
         LiveWindow.addActuator("Shooter", "Hood2", shooterHood2);
         
         shooterHood = new BBDualServo(shooterHood1, shooterHood2);
