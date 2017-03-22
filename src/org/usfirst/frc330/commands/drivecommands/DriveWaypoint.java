@@ -88,7 +88,7 @@ public class DriveWaypoint extends DriveDistanceAtAbsAngle_NoTurn {
     }
     
     protected boolean isFinished() {
-        if ((Robot.chassis.leftDrivePID.onTarget() && Robot.chassis.rightDrivePID.onTarget()) || isTimedOut())
+        if ((Robot.chassis.leftDrivePID.onTarget() || Robot.chassis.rightDrivePID.onTarget()) || isTimedOut())
         {
                 return true;            
         }
