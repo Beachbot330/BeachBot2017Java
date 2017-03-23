@@ -52,16 +52,17 @@ public class RightBoiler40BallSweep extends BBCommandGroup {
     	addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
     	addSequential(new DriveWaypointBackward(56.5, -74, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
     	
-    	addSequential(new WaitCommand(2));
+    	addSequential(new WaitCommand(.5));
     	
+    	addSequential(new WingsOpen()); //catch ALL the balls
     	//TurnGyroRel(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains)
     	addSequential(new TurnGyroRel(15, 3, 3, true, ChassisConst.GyroTurnLow)); //bump ball hopper
-    	addSequential(new WingsOpen()); //catch ALL the balls
+    	
     	addSequential(new IgniteSun());
     	addParallel(new PrepareToShoot(ShooterConst.RB_KPA)); //start agitator and shooter wheels 
-    	addSequential(new WaitCommand(1)); //try to reduce
+    	//addSequential(new WaitCommand(1)); //try to reduce
     	//TurnCamera(String cameraName, double tolerance, int toleranceStableCount, double timeout, boolean stopAtEnd, PIDGains gains)
-    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW)); //aim at boiler
+    	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addSequential(new ShootWithWingsAgitate( )); // shoot
     	// end in high gear
     	

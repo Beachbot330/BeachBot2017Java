@@ -38,26 +38,25 @@ public class LeftBoilerGearShoot extends BBCommandGroup {
     	addParallel(new ShiftLow()); //change to ShiftHigh
     	addSequential(new WaitCommand(2));
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 84, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive before turn
-    	addSequential(new WaitCommand(2));
+    	addSequential(new DriveWaypoint(0, 90, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive before turn
+    	//addSequential(new WaitCommand(5));
     	addParallel(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(36, 114, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
-    	addSequential(new DriveWaypoint(36, 114, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive into airship
-    	addSequential(new WaitCommand(2));
+    	addSequential(new TurnGyroWaypoint(24, 110, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
+    	//addSequential(new WaitCommand(5));
+    	addSequential(new DriveWaypoint(24, 110, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive into airship
+    	addSequential(new WaitCommand(0.3));
     	addSequential(new GearDropOff());
-    	addSequential(new WaitCommand(2));
-    	addParallel(new ShiftLow()); //change to ShiftHigh
-    	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
+    	addSequential(new WaitCommand(0.3));
     	//DriveDistance(double distance, double tolerance, PIDGains gains)
+    	addParallel(new IgniteSun());
     	addSequential(new DriveDistance(-36, 3, ChassisConst.DriveHigh)); //away from airship
     	addParallel(new ShiftLow());
+    	addSequential(new PrepareToShoot(ShooterConst.RIGHT_AUTO));
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(-84, 18,3, 3, ChassisConst.GyroTurnLow )); //turn to boiler 180
-    	// aim the robot to shoot
-    	addSequential(new WaitCommand(2));
-    	addParallel(new IgniteSun());
-    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
+    	addSequential(new TurnGyroWaypoint(-84, 18, 3, 3, ChassisConst.GyroTurnLow )); //turn to boiler 180
+    	addSequential(new WaitCommand(0.3));
+    	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW));
     	addSequential(new ShootWithWingsAgitate( ));
     	addParallel(new ShiftHigh());
     	

@@ -34,9 +34,9 @@ public class ShootTest extends BBCommandGroup {
         // arm.
     	
     	
-    	addSequential(new PrepareToShoot(ShooterConst.CENTER_AUTO));
-    	addSequential(new WaitCommand(5));
-    	addSequential(new ShootWithWingsAgitate( ));
+    	//addSequential(new PrepareToShoot(ShooterConst.RIGHT_AUTO));
+    	//addSequential(new WaitCommand(5));
+    	//addSequential(new ShootWithWingsAgitate( ));
     	
     	
     	

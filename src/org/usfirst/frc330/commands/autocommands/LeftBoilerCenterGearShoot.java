@@ -48,11 +48,10 @@ public class LeftBoilerCenterGearShoot extends BBCommandGroup {
     	addParallel(new ShiftLow( ));
     	//double x, double y, double tolerance, double timeout, PIDGains gains
     	addParallel(new IgniteSun());
-    	addSequential(new TurnGyroWaypoint(156, 20, 3, 1.5, ChassisConst.GyroTurnLow ));
+    	addSequential(new TurnGyroWaypoint(-156, 20, 3, 1.5, ChassisConst.GyroTurnLow ));
     	addSequential(new WaitCommand(0.3));
     	//addSequential(new ( ));		aim robot for high shot maybe later
     	//addParallel(new ( ));			create wing move 1hz maybe late
-    	addSequential(new WaitCommand(0.3));
     	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
     	addParallel(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
     	addSequential(new WaitCommand(1.5));

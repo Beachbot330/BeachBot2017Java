@@ -53,7 +53,7 @@ public class RightBoilerCenterGearShoot extends BBCommandGroup {
     	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addSequential(new WaitCommand(1.5)); // try to reduce
     	addSequential(new ShootWithWingsAgitate( )); // shoot
-    	//addParallel(new ShiftHigh());
+    	addParallel(new ShiftHigh());
     	
     	
     }
