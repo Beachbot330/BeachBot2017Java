@@ -8,10 +8,10 @@ public class ShooterConst {
 	public static final TalonPIDSettings FAR 		    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.94);   // WAG
 	public static final TalonPIDSettings JIFFY_POP	    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    1200,  100.0,  0.85);   // AP
 	public static final TalonPIDSettings RECIRCULATE    = new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 0.000,    -100,  200.0,  0.99);   // AP 3-11
-	public static final TalonPIDSettings DEFAULT        = CLOSE;
 	public static final TalonPIDSettings CENTER_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    4150,  100.0,  0.923);	//zac 3-18 WAG
 	public static final TalonPIDSettings RB_KPA 		= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3700,  100.0,  0.96);	//zac 3-20 WAG
 	public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3800,  100.0,  0.937);	//zac 3-20 WAG
+	public static final TalonPIDSettings DEFAULT        = CLOSE;
 	
 	//3700 actual
 	//public static final TalonPIDSettings CENTER_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    0,  100.0,  0.90);	//zac 3-18 WAG

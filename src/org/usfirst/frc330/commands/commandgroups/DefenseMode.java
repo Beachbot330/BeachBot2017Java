@@ -52,7 +52,6 @@ public class DefenseMode extends BBCommandGroup {
     	//Turn off unused motors
     	addSequential(new GateStop());
     	addSequential(new ShooterStop());
-    	addSequential(new PickupOff());
     	addSequential(new HopperStop());
     	
     	// Move gear pickup

@@ -42,7 +42,6 @@ public class DriveCamVisionOff extends BBCommand {
     protected void initialize() {
     	Robot.frills.extinguishDyingSun();
     	Robot.frills.driverCameraBright();
-    	SmartDashboard.putBoolean("shouldHaveGear", false);
     }
 
     // Called repeatedly when this Command is scheduled to run

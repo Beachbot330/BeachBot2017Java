@@ -107,17 +107,18 @@ public class Robot extends BBIterativeRobot {
         
         autoProgram = new SendableChooser<Command>();
         autoProgram.addDefault("Do Nothing", new DoNothing());
-        autoProgram.addObject("Z_JoeTest", new JoeTest());
-        autoProgram.addObject("RBCGearShoot", new RightBoilerCenterGearShoot());
-        autoProgram.addObject("LBCGearShoot", new LeftBoilerCenterGearShoot());
-        autoProgram.addObject("RBGearShoot", new RightBoilerGearShoot());
-        autoProgram.addObject("LBGearShoot", new LeftBoilerGearShoot());
-        autoProgram.addObject("TurnTest", new Turntest());
-        autoProgram.addObject("ShootTest", new ShootTest());
-        autoProgram.addObject("NRBGearShoot", new NotRightBoilerGearShoot());
-        autoProgram.addObject("NLBGearShoot", new NotLeftBoilerGearShoot());
-        autoProgram.addObject("RB40Ball", new RightBoiler40Ball());
-        autoProgram.addObject("Shelf Destruct", new RightBoiler40BallSweep());
+        //autoProgram.addObject("Z_JoeTest", new JoeTest());
+        autoProgram.addObject("Right Boiler -C- Gear & Shoot", new RightBoilerCenterGearShoot());
+        autoProgram.addObject("Left Boiler -C- Gear & Shoot", new LeftBoilerCenterGearShoot());
+        autoProgram.addObject("Right Boiler -R- Gear & Shoot", new RightBoilerGearShoot());
+        autoProgram.addObject("Left Boiler -L- Gear & Shoot", new LeftBoilerGearShoot());
+        //autoProgram.addObject("TurnTest", new Turntest());
+        //autoProgram.addObject("ShootTest", new ShootTest());
+        autoProgram.addObject("Right Boiler -L- Gear & Shoot", new NotRightBoilerGearShoot());
+        autoProgram.addObject("Left Boiler -R- Gear & Shoot", new NotLeftBoilerGearShoot());
+        autoProgram.addObject("Right Boiler 40 Ball", new RightBoiler40BallSweep());
+        autoProgram.addObject("Left Boiler 40 Ball", new LeftBoiler40BallSweep());
+        //autoProgram.addObject("Shelf Destruct", new RightBoiler40BallSweep());
         
         
         SmartDashboard.putData("Auto Program", autoProgram);

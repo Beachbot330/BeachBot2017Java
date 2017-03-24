@@ -11,6 +11,8 @@
 
 package org.usfirst.frc330.commands;
 import edu.wpi.first.wpilibj.command.BBCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc330.Robot;
 
 /**
@@ -37,6 +39,7 @@ public class GearGrab extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	SmartDashboard.putBoolean("shouldHaveGear", true);
     	Robot.pickup.gearGrab();
     }
 
