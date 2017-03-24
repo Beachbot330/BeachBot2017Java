@@ -37,6 +37,10 @@ public class DrivePath extends DriveWaypoint {
 		x = tempWaypoint.x;
 		y = tempWaypoint.y;
 		calcXY(x,y);
+        leftSetpoint = leftDistance+Robot.chassis.getLeftDistance();
+        rightSetpoint = rightDistance+Robot.chassis.getRightDistance();
+        Robot.chassis.leftDrivePID.setSetpoint(leftSetpoint);
+        Robot.chassis.rightDrivePID.setSetpoint(rightSetpoint);
 		super.execute();
 	}
 	
