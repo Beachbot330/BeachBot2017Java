@@ -46,19 +46,19 @@ public class ShootWithWingsAuto extends BBCommand {
     	Robot.shooter.enableGate();
     	Robot.pickup.wingsOpen();
     	wingsOpened = true;	
-    	timer = Timer.getFPGATimestamp();
-    	interval = 0.7;
-    	duration = 0.7;
+    	timer = Timer.getFPGATimestamp()+ 3.2;
+    	interval = 0.8;
+    	duration = 0.1;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if( ((Timer.getFPGATimestamp() - timer) > interval) && !wingsOpened){
+    	if( ((Timer.getFPGATimestamp() - timer) > interval) && wingsOpened){
     		Robot.pickup.wingsClosed();
     		wingsOpened = false;
     		timer = Timer.getFPGATimestamp();
     	}
-    	else if ( ((Timer.getFPGATimestamp() - timer) > duration) && wingsOpened){
+    	else if ( ((Timer.getFPGATimestamp() - timer) > duration) && !wingsOpened){
     		Robot.pickup.wingsOpen();
     		wingsOpened = true;
     		timer = Timer.getFPGATimestamp();

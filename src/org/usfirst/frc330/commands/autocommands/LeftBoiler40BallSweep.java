@@ -7,6 +7,7 @@ import org.usfirst.frc330.commands.ShiftLow;
 import org.usfirst.frc330.commands.WingsOpen;
 import org.usfirst.frc330.commands.commandgroups.PrepareToShoot;
 import org.usfirst.frc330.commands.commandgroups.ShootWithWingsAgitate;
+import org.usfirst.frc330.commands.commandgroups.ShootWithWingsAgitateAuto;
 import org.usfirst.frc330.commands.drivecommands.DriveWaypointBackward;
 import org.usfirst.frc330.commands.drivecommands.TurnCamera;
 import org.usfirst.frc330.commands.drivecommands.TurnGyroRel;
@@ -46,7 +47,6 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
     	addParallel(new ShiftLow()); //change to ShiftHigh
-    	addSequential(new WaitCommand(0.2));
     	
     	// Sweeping Drive Command
     	addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
@@ -56,7 +56,9 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	
     	addSequential(new WingsOpen()); //catch ALL the balls
     	//TurnGyroRel(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains)
-    	addSequential(new TurnGyroRel(-15, 3, 3, true, ChassisConst.GyroTurnLow)); //bump ball hopper
+    	//addSequential(new TurnGyroRel(-15, 3, 3, true, ChassisConst.GyroTurnLow)); //bump ball hopper
+    	addSequential(new TurnGyroRel(-20, 3, 1.0, true, ChassisConst.GyroTurnLow));
+    	addSequential(new TurnGyroRel(5, 3, 0.3, true, ChassisConst.GyroTurnLow));
     	
     	addSequential(new IgniteSun());
     	addParallel(new PrepareToShoot(ShooterConst.RB_KPA)); //start agitator and shooter wheels 
@@ -64,7 +66,7 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	//TurnCamera(String cameraName, double tolerance, int toleranceStableCount, double timeout, boolean stopAtEnd, PIDGains gains)
     	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addSequential(new WaitCommand(0.5));
-    	addSequential(new ShootWithWingsAgitate( )); // shoot
+    	addSequential(new ShootWithWingsAgitateAuto( )); // shoot
     	// end in high gear
     	
     }
