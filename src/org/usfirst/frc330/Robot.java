@@ -134,7 +134,7 @@ public class Robot extends BBIterativeRobot {
 		Scheduler.getInstance().removeAll();
 		Robot.shooter.climberLock();
 		Robot.pickup.gearPickupUp();
-		Robot.pickup.gearRelease();
+		//Robot.pickup.gearRelease();
 		Robot.pickup.wingsClosed();
 		Robot.shooter.stopGate();
 		Robot.shooter.stopShooter();
