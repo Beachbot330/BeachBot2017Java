@@ -50,7 +50,7 @@ public class RightBoiler40BallSweep extends BBCommandGroup {
     	
     	// Sweeping Drive Command
     	addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
-    	addSequential(new DriveWaypointBackward(56.5, -74, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
+    	addSequential(new DriveWaypointBackward(56.5, -78.5, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2)); // was -74 coming to long beach
     	
     	addSequential(new WaitCommand(.5));
     	

@@ -36,7 +36,7 @@ public class LeftBoilerGearShoot extends BBCommandGroup {
     	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
     	addParallel(new ShiftLow()); //change to ShiftHigh
-    	addSequential(new WaitCommand(2));
+    	//addSequential(new WaitCommand(2));
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 90, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive before turn
     	//addSequential(new WaitCommand(5));

@@ -183,6 +183,7 @@ public class Shooter extends Subsystem {
     }
     
     public void stopShooter() {
+    	shooter.changeControlMode(TalonControlMode.PercentVbus);
     	shooter.set(0);
     	Logger.getInstance().println("Shooter stopped");
     }

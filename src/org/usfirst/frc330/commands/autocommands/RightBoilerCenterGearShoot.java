@@ -35,7 +35,7 @@ public class RightBoilerCenterGearShoot extends BBCommandGroup {
     	
     	addParallel(new DriveCamVisionOn());
     	addParallel(new GearGrab());
-    	addSequential(new WaitCommand(2)); //allow human to get out of way
+    	//addSequential(new WaitCommand(2)); //allow human to get out of way
     	addParallel(new ShiftLow()); //change to shift high
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 72, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to airship
