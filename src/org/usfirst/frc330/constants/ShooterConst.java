@@ -4,6 +4,7 @@ import org.usfirst.frc330.util.TalonPIDSettings;
 
 public class ShooterConst {
 	                                                                 		// P     I     D     F       rampRate  RPM    tol     Hood
+	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.993);   // AP 3-25
 	public static final TalonPIDSettings CLOSE 			= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.989);   // AP 3-25 TOok off 0.004 per Shane
 	public static final TalonPIDSettings FAR 		    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.94);   // WAG
 	public static final TalonPIDSettings JIFFY_POP	    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    1200,  100.0,  0.85);   // AP

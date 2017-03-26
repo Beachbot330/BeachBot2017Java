@@ -298,5 +298,13 @@ public class Shooter extends Subsystem {
 		return gate.getOutputCurrent();
 	}
 	
+	public double getShooterSetpoint(){
+		return shooter.getSetpoint();
+	}
+	
+	public void setShooterSetpoint(double setpoint){
+		shooter.set(setpoint);
+	}
+	
 }
 
