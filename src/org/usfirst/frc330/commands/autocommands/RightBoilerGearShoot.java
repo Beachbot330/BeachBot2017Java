@@ -44,7 +44,7 @@ public class RightBoilerGearShoot extends BBCommandGroup {
     	//double x, double y, double tolerance, double timeout, PIDGains gains
     	addSequential(new TurnGyroWaypoint(-24, 110, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
     	//addSequential(new WaitCommand(5));
-    	addSequential(new DriveWaypoint(-24, 110, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive into airship
+    	addSequential(new DriveWaypoint(-24, 110, 9, 3, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive into airship (Too far)
     	addSequential(new WaitCommand(0.3));
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
