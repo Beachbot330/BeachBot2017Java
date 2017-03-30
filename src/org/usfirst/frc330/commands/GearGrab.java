@@ -39,7 +39,6 @@ public class GearGrab extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	SmartDashboard.putBoolean("shouldHaveGear", true);
     	Robot.pickup.gearGrab();
     }
 

@@ -28,6 +28,7 @@ import org.usfirst.frc330.wpilibj.BBSolenoid;
 import org.usfirst.frc330.wpilibj.DualSpeedController;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -144,12 +145,14 @@ public class Pickup extends Subsystem {
     }
 
 	public void gearGrab() {
-		pincher.set(DoubleSolenoid.Value.kReverse);;
+		pincher.set(DoubleSolenoid.Value.kReverse);
+		SmartDashboard.putBoolean("shouldHaveGear", true);
 		Logger.getInstance().println("Gear Grabbed");
 	}
 
 	public void gearRelease() {
 		pincher.set(DoubleSolenoid.Value.kForward);
+		SmartDashboard.putBoolean("shouldHaveGear", false);
 		Logger.getInstance().println("Gear Released");
 		if (!isGearPresent())
 			Logger.getInstance().println("No gear was present");

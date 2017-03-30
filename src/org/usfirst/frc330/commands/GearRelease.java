@@ -39,7 +39,6 @@ public class GearRelease extends BBCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	SmartDashboard.putBoolean("shouldHaveGear", false);
     	Robot.pickup.gearRelease();
     	Robot.frills.setGreenLEDs(false);
     	Robot.frills.driverCameraBright();
