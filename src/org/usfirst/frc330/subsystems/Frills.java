@@ -245,6 +245,7 @@ public class Frills extends Subsystem {
     	catch (Exception ex) {
     		Logger.getInstance().println("Exception initializing Driver Camera", Severity.ERROR);
     		Logger.getInstance().printStackTrace(ex);
+    		setAlarmLED(Alarm.FAST);
     	}
     }
     
@@ -262,6 +263,7 @@ public class Frills extends Subsystem {
     	catch (Exception ex) {
     		Logger.getInstance().println("Exception initializing Shooter Camera", Severity.ERROR);
     		Logger.getInstance().printStackTrace(ex);
+    		setAlarmLED(Alarm.FAST);
     	}
     }
     
