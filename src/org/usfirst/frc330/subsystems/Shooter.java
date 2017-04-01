@@ -104,7 +104,7 @@ public class Shooter extends Subsystem {
     	};
     	CSVLogger.getInstance().add("ShooterCurrent", temp);
     	
-    	temp = new CSVLoggable(false) {
+    	temp = new CSVLoggable(true) {
 			public double get() { return isShooterAtSpeed() ? 1.0 : 0.0; }
     	};
     	CSVLogger.getInstance().add("ShooterRPMOk", temp);
