@@ -90,10 +90,9 @@ public class Robot extends BBIterativeRobot {
         CSVLogger.getInstance().writeHeader();
         
         Logger.getInstance().println("BeachbotLib Version:        " + BeachbotLibVersion.Version, Severity.INFO);
-        Logger.getInstance().println("WPILib Version: "             + WPILibVersion.Version, Severity.INFO);
+        Logger.getInstance().println("WPILib Version:             " + WPILibVersion.Version, Severity.INFO);
         Logger.getInstance().println("NavX Firmware Version:      " + RobotMap.chassisImu.getFirmwareVersion(), Severity.INFO);
         Logger.getInstance().println("CAN Talon Firmware Version: " + RobotMap.shooterShooter.GetFirmwareVersion(), Severity.INFO);
-        
 
         if (isPracticeRobot())
         	Logger.getInstance().println("Practice Robot Detected",true);
@@ -150,6 +149,7 @@ public class Robot extends BBIterativeRobot {
     	chassis.calcXY();
     	CSVLogger.getInstance().writeData();
     	Logger.getInstance().updateDate();
+    	CSVLogger.getInstance().updateDate();
     	buzzer.update();
     }
 
@@ -157,6 +157,8 @@ public class Robot extends BBIterativeRobot {
 		buzzer.enable(1.25);
     	Logger.getInstance().println("Autonomous Init",true);
     	Logger.getInstance().updateDate();
+    	CSVLogger.getInstance().updateDate();
+    	
     	
     	Robot.chassis.resetPosition();
     	Robot.shooter.climberUnlock();
@@ -187,6 +189,7 @@ public class Robot extends BBIterativeRobot {
     public void teleopInit() {
     	Logger.getInstance().println("Teleop Init", true);
     	Logger.getInstance().updateDate();
+    	CSVLogger.getInstance().updateDate();
     	Robot.frills.dimBlueLEDs();
     	buzzer.enable(1.25);
     	Robot.shooter.climberUnlock();
@@ -239,6 +242,7 @@ public class Robot extends BBIterativeRobot {
     public void disconnectedInit() {
     	buzzer.enable(0.2);
         Logger.getInstance().println("Disconnected Init", true);
+        CSVLogger.getInstance().updateDate();
     }
 
     /**
