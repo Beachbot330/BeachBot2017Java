@@ -126,14 +126,13 @@ public class Chassis extends Subsystem {
         double distanceperpulse = Math.PI*ChassisConst.wheelDiameter/pulsePerRevolutionLeft /
         		ChassisConst.encoderGearRatio/ChassisConst.gearRatio * ChassisConst.Fudgefactor;
 
-        driveTrainEncoderR.setReverseDirection(true);
         driveTrainEncoderL.setDistancePerPulse(distanceperpulse);
         
         distanceperpulse = Math.PI*ChassisConst.wheelDiameter/pulsePerRevolutionRight /
         		ChassisConst.encoderGearRatio/ChassisConst.gearRatio * ChassisConst.Fudgefactor;
         
         driveTrainEncoderR.setDistancePerPulse(distanceperpulse);
-     
+        driveTrainEncoderR.setReverseDirection(true);
         	
         // LOGGING!
         CSVLoggable temp = new CSVLoggable(true) {
