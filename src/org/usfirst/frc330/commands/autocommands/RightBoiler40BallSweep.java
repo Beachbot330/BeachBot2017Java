@@ -65,6 +65,7 @@ public class RightBoiler40BallSweep extends BBCommandGroup {
     	//addSequential(new WaitCommand(1)); //try to reduce
     	//TurnCamera(String cameraName, double tolerance, int toleranceStableCount, double timeout, boolean stopAtEnd, PIDGains gains)
     	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
+    	addParallel(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addSequential(new ShootWithWingsAgitateAuto( )); // shoot
     	// end in high gear
     	

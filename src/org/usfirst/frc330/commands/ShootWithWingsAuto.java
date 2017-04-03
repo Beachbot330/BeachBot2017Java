@@ -48,7 +48,7 @@ public class ShootWithWingsAuto extends BBCommand {
     	wingsOpened = true;	
     	timer = Timer.getFPGATimestamp()+ 3.2;
     	interval = 0.8;
-    	duration = 0.1;
+    	duration = 0.04;
     }
 
     // Called repeatedly when this Command is scheduled to run
