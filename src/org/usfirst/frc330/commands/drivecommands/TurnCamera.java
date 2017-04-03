@@ -69,7 +69,7 @@ public class TurnCamera extends TurnGyroRel {
 			toleranceCount++;
 		else
 			toleranceCount = 0;
-		return getCameraDetected() && toleranceCount > toleranceStableCount;   //
+		return (getCameraDetected() && toleranceCount > toleranceStableCount) || isTimedOut();   //
 	}
 	
 	public double getCameraAngle() {

@@ -41,32 +41,35 @@ public class RightBoilerLeftGearHopper extends BBCommandGroup {
     	addParallel(new ShiftLow());
  
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 90, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
-
+    	addSequential(new DriveWaypoint(0, 77, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
+    	addSequential(new WaitCommand(3.0));
+    	
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(24, 110, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
-
-    	addSequential(new DriveWaypoint(24, 110, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
+    	addSequential(new TurnGyroWaypoint(39, 106, 3, 1, ChassisConst.GyroTurnLow)); //turn to airship
+    	addSequential(new WaitCommand(3.0));
+    	
+    	addSequential(new DriveWaypoint(39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
     	addSequential(new WaitCommand(0.3));
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
     	
     	//DRIVE AWAY FROM AIRSHIP, TURN ON LED, TURN AND DRIVE TOWARDS BOILER
     	
-    	addSequential(new DriveWaypointBackward(0, 90, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //away from airship
+    	addSequential(new DriveWaypointBackward(0, 80, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //away from airship
     	addSequential(new TurnGyroWaypoint(150, 20, 3, 3, ChassisConst.GyroTurnLow )); //150 test
+    	addSequential(new WaitCommand(3.0));
     	
     	//GET CLOSER AND PREPARE TO SHOOT
     	
-     	addParallel(new IgniteSun());
+     	addSequential(new IgniteSun());
     	addParallel(new PrepareToShoot(ShooterConst.FARSIDE_AUTO)); //starts rollers and shooter
     	//DriveDistance(double distance, double tolerance, PIDGains gains)
-    	addSequential(new DriveDistance(24, 3, ChassisConst.DriveLow));
+    	addSequential(new DriveDistance(48, 3, ChassisConst.DriveLow));
 
     	//AIM AND SHOOT, TURN OFF SHOOTER
     	
-    	addSequential(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW)); //aim at boiler
-    	addSequential(new ShootWithWingsAgitate()); // shoot
+    	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
+    	addParallel(new ShootWithWingsAgitate()); // shoot
     	addSequential(new WaitCommand(1.5));
     	//CODE TO STOP SHOOTER NEEDED??
     	addSequential(new ShooterStop());
