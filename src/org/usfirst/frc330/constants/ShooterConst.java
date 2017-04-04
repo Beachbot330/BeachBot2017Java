@@ -29,12 +29,15 @@ public class ShooterConst {
 	public static final TalonPIDSettings CLIMB        	= new TalonPIDSettings(0.5, 0.0,  0.0,  0.35,  0.000,    400,  100.0,  0.0);   //JR 3-12
 	
 
-	public static TalonPIDSettings shooterLookup(double distance){
-		if(distance < 8){
+	public static TalonPIDSettings shooterLookup(double rect){
+		if(rect > 110){
 			return EXTRA_CLOSE;
 		}
-		else if(distance < 8.5){
+		else if(rect > 90){
 			return CLOSE;
+		}
+		else if(rect > 70){ //85
+			return new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3700,  100.0,  0.96);
 		}
 		else{
 			return FAR;
