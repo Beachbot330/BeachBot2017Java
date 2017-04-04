@@ -46,6 +46,7 @@ public class TurnCamera extends TurnGyroRel {
 	public void initialize() {
 		if (!SmartDashboard.containsKey(cameraName+"Detected"))
 			Logger.getInstance().println("Camera Name: " + cameraName + " Not detected", Severity.ERROR);
+		toleranceStableCount = 0;
 		angle = getCameraAngle();
 		super.initialize();
 	}
