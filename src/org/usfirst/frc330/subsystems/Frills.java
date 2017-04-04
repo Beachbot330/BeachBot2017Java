@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -65,6 +66,11 @@ public class Frills extends Subsystem {
 			public double get() { return DriverStation.getInstance().getMatchTime(); }
     	};
     	CSVLogger.getInstance().add("MatchTime", temp);
+    	temp = new CSVLoggable(false) {
+			public double get() { return SmartDashboard.getNumber("targetAngle", 0); }
+    	};
+    	CSVLogger.getInstance().add("BoilerAngle", temp);
+    	
     }
 
     // Put methods for controlling this subsystem
