@@ -16,7 +16,7 @@ import org.usfirst.frc330.constants.ChassisConst;
 import org.usfirst.frc330.constants.ShooterConst;
 
 import edu.wpi.first.wpilibj.command.BBCommandGroup;
-import edu.wpi.first.wpilibj.command.WaitCommand;
+import org.usfirst.frc330.commands.WaitCommand;
 
 /**
  *
