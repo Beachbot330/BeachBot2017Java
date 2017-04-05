@@ -8,7 +8,7 @@ import org.usfirst.frc330.constants.ShooterConst;
 import org.usfirst.frc330.wpilibj.PIDGains;
 
 import edu.wpi.first.wpilibj.command.BBCommandGroup;
-import edu.wpi.first.wpilibj.command.WaitCommand;
+import org.usfirst.frc330.commands.WaitCommand;
 
 /**
  *

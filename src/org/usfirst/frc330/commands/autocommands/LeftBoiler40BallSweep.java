@@ -52,20 +52,20 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
     	addSequential(new DriveWaypointBackward(-47, -80, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
     	
-    	addSequential(new WaitCommand(.5));
     	
+    	addSequential(new PrepareToShoot(ShooterConst.RB_KPA)); //start agitator and shooter wheels 
+
     	addSequential(new WingsOpen()); //catch ALL the balls
     	//TurnGyroRel(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains)
     	//addSequential(new TurnGyroRel(-15, 3, 3, true, ChassisConst.GyroTurnLow)); //bump ball hopper
-    	addSequential(new TurnGyroRel(-20, 3, 1.0, true, ChassisConst.GyroTurnLow));
-    	addSequential(new TurnGyroRel(5, 3, 0.3, true, ChassisConst.GyroTurnLow));
+    	addSequential(new TurnGyroRel(-20, 3.0, 0.25, true, ChassisConst.GyroTurnLow));
+    	addSequential(new TurnGyroRel(5, 2.0, 0.25, true, ChassisConst.GyroTurnLow));
     	
     	addSequential(new IgniteSun());
-    	addParallel(new PrepareToShoot(ShooterConst.RB_KPA)); //start agitator and shooter wheels 
     	//addSequential(new WaitCommand(1)); //try to reduce
     	//TurnCamera(String cameraName, double tolerance, int toleranceStableCount, double timeout, boolean stopAtEnd, PIDGains gains)
-    	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
-    	addSequential(new WaitCommand(0.5));
+    	addSequential(new TurnCamera("target", 1.5, 15, 1.5, true, ChassisConst.CAMERA_LOW)); //aim at boiler
+    	addParallel(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addSequential(new ShootWithWingsAgitateAuto( )); // shoot
     	// end in high gear
     	
