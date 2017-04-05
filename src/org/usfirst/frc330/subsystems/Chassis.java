@@ -194,6 +194,11 @@ public class Chassis extends Subsystem {
     	CSVLogger.getInstance().add("ChassisAngle", temp);
     	
     	temp = new CSVLoggable(true) {
+			public double get() { return gyroPID.getSetpoint(); }  		
+    	};    	
+    	CSVLogger.getInstance().add("GyroSetpoint", temp);
+    	
+    	temp = new CSVLoggable(true) {
 			public double get() { return getGyroComp(); }  		
     	};    	
     	CSVLogger.getInstance().add("GyroCompensation", temp);
