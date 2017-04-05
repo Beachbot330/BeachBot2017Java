@@ -79,7 +79,7 @@ public class Shooter extends Subsystem {
     	shooter2.reverseOutput(true);
     	shooter2.enableBrakeMode(false);
     	
-    	CSVLoggable temp = new CSVLoggable(false) {
+    	CSVLoggable temp = new CSVLoggable(true) {
 			public double get() { return shooter.getSetpoint(); }
     	};
     	CSVLogger.getInstance().add("ShooterTargetRPM", temp);
@@ -143,6 +143,10 @@ public class Shooter extends Subsystem {
     	};
     	CSVLogger.getInstance().add("GateCurrent", temp);
     	
+    	temp = new CSVLoggable(true) {
+			public double get() { return getHoodAngle(); }
+    	};
+    	CSVLogger.getInstance().add("HoodAngle", temp);
         
     }
 

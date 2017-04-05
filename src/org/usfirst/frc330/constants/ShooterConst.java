@@ -33,14 +33,44 @@ public class ShooterConst {
 		if(rect > 110){
 			return EXTRA_CLOSE;
 		}
-		else if(rect > 90){
-			return CLOSE;
+		else if(rect > 104){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3450,  100.0,  0.9838);
 		}
-		else if(rect > 70){ //85
-			return new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3700,  100.0,  0.96);
+		else if(rect > 101){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3500,  100.0,  0.9694);
+		}
+		else if(rect > 97){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3500,  100.0,  0.965);
+		}
+		else if(rect > 92){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3500,  100.0,  0.9561);
+		}
+		else if(rect > 86){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3550,  100.0,  0.9516);
+		}
+		else if(rect > 82){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3650,  100.0,  0.942);
+		}
+		else if(rect > 77){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3650,  100.0,  0.9394);
+		}
+		else if(rect > 72){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3750,  100.0,  0.93);
+		}
+		else if(rect > 68){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3750,  100.0,  0.921);
+		}
+		else if(rect > 63){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3850,  100.0,  0.9167);
+		}
+		else if(rect > 58){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    3950,  100.0,  0.9078);
+		}
+		else if(rect > 52){
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    4100,  100.0,  0.903);
 		}
 		else{
-			return FAR;
+			return new TalonPIDSettings(0.2,  0.0,  0.0,  0.005, 100.0,    4250,  100.0,  0.8944);
 		}
 	}
 }
