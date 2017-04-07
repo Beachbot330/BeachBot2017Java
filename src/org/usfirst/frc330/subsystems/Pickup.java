@@ -11,6 +11,7 @@
 
 package org.usfirst.frc330.subsystems;
 
+import org.usfirst.frc330.Robot;
 import org.usfirst.frc330.RobotMap;
 import org.usfirst.frc330.commands.*;
 import org.usfirst.frc330.constants.PickupConst;
@@ -56,7 +57,16 @@ public class Pickup extends Subsystem {
     
     public Pickup() {
     	CSVLoggable temp = new CSVLoggable(true) {
-			public double get() { return isGearPresent() ? 1 : 0; }
+			public double get() { 
+				if (isGearPresent()){
+					Robot.frills.gearLightOn();
+					return 1;
+				}
+				else{
+					Robot.frills.gearLightOff();
+					return 0;			
+				}
+			}
     	};
     	CSVLogger.getInstance().add("GearPresent", temp);
     }

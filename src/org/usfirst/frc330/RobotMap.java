@@ -53,6 +53,7 @@ public class RobotMap {
     public static DigitalOutput frillsgreenLEDs;
     public static AnalogOutput frillsLEDSelection;
     public static AnalogOutput frillsDyingBlueSuns;
+    public static DigitalOutput frillsGearLight;
     public static SpeedController chassisLeftDrive1;
     public static SpeedController chassisLeftDrive2;
     public static SpeedController chassisLeftDrive3;
@@ -106,6 +107,9 @@ public class RobotMap {
         frillsDyingBlueSuns = new AnalogOutput(1);
         LiveWindow.addActuator("Frills", "DyingBlueSuns", frillsDyingBlueSuns);
         
+        frillsGearLight = new DigitalOutput(6);
+        LiveWindow.addActuator("Frills", "GearLight", frillsGearLight);
+        
         chassisLeftDrive1 = new Spark(0);
         LiveWindow.addActuator("Chassis", "LeftDrive1", (Spark) chassisLeftDrive1);
         
@@ -131,7 +135,7 @@ public class RobotMap {
         LiveWindow.addSensor("Chassis", "DriveTrainEncoderL", chassisDriveTrainEncoderL);
         chassisDriveTrainEncoderL.setDistancePerPulse(1.0);
         chassisDriveTrainEncoderL.setPIDSourceType(PIDSourceType.kDisplacement);
-        chassisDriveTrainEncoderR = new Encoder(6, 7, false, EncodingType.k4X);
+        chassisDriveTrainEncoderR = new Encoder(3, 4, false, EncodingType.k4X);
         LiveWindow.addSensor("Chassis", "DriveTrainEncoderR", chassisDriveTrainEncoderR);
         chassisDriveTrainEncoderR.setDistancePerPulse(1.0);
         chassisDriveTrainEncoderR.setPIDSourceType(PIDSourceType.kDisplacement);

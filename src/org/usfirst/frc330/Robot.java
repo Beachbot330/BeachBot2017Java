@@ -192,7 +192,7 @@ public class Robot extends BBIterativeRobot {
     	Logger.getInstance().println("Teleop Init", true);
     	Logger.getInstance().updateDate();
     	CSVLogger.getInstance().updateDate();
-    	Robot.frills.dimBlueLEDs();
+    	Robot.frills.igniteDyingSun();
     	buzzer.enable(1.25);
     	Robot.shooter.climberUnlock();
         // This makes sure that the autonomous stops running when

@@ -69,6 +69,16 @@ Children:
           value: '1'
       Base: Analog Output
       Name: DyingBlueSuns
+    - Children: []
+      Properties:
+        Output Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '0'
+          name: Output Channel (Digital)
+          validators: *id002
+          value: '6'
+      Base: Digital Output
+      Name: GearLight
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -236,7 +246,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: *id009
-          value: '6'
+          value: '3'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -258,7 +268,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: *id013
-          value: '7'
+          value: '4'
       Base: Quadrature Encoder
       Name: DriveTrainEncoderR
     - Children: []
@@ -1983,10 +1993,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id039 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id039
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
