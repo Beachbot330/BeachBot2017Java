@@ -108,6 +108,11 @@ public class Shooter extends Subsystem {
 			public double get() { return isShooterAtSpeed() ? 1.0 : 0.0; }
     	};
     	CSVLogger.getInstance().add("ShooterRPMOk", temp);
+    	
+    	temp = new CSVLoggable(true) {
+    		public double get() {return SmartDashboard.getNumber("rectWidth", 0.0);}
+    	};
+    	CSVLogger.getInstance().add("RectWidth", temp);
 
 		gate.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		gate.enableBrakeMode(false);
