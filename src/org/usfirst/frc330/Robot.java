@@ -120,6 +120,7 @@ public class Robot extends BBIterativeRobot {
         autoProgram.addObject("Right Boiler -L- Gear & Hopper", new RightBoilerLeftGearHopper());
         //autoProgram.addObject("Shelf Destruct", new RightBoiler40BallSweep());
         autoProgram.addObject("Right Boiler 40 Ball v2", new RightBoiler40Ballv2());
+        autoProgram.addObject("Right Boiler -R- Gear Vision & Shoot", new RightBoilerGearShootVision());
         
         
         SmartDashboard.putData("Auto Program", autoProgram);
