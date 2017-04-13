@@ -194,6 +194,7 @@ public class Robot extends BBIterativeRobot {
     	Logger.getInstance().updateDate();
     	CSVLogger.getInstance().updateDate();
     	Robot.frills.igniteDyingSun();
+    	Robot.frills.driverCameraBright();
     	buzzer.enable(1.25);
     	Robot.shooter.climberUnlock();
         // This makes sure that the autonomous stops running when

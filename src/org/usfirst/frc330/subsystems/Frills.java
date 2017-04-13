@@ -236,7 +236,7 @@ public class Frills extends Subsystem {
     }
     
     public void igniteDyingSun(){
-    	dyingBlueSuns.setVoltage(2.5);;
+    	dyingBlueSuns.setVoltage(2.5);
     }
     
     public void extinguishDyingSun(){
