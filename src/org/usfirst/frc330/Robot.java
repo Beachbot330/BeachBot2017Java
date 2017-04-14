@@ -108,6 +108,7 @@ public class Robot extends BBIterativeRobot {
         autoProgram.addDefault("Do Nothing", new DoNothing());
         //autoProgram.addObject("Z_JoeTest", new JoeTest());
         autoProgram.addObject("Right Boiler -C- Gear & Shoot", new RightBoilerCenterGearShoot());
+        autoProgram.addObject("Right Boiler -C- Gear, Shoot & Catch", new RightBoilerCenterGearShootCatch());
         autoProgram.addObject("Left Boiler -C- Gear & Shoot", new LeftBoilerCenterGearShoot());
         autoProgram.addObject("Right Boiler -R- Gear & Shoot", new RightBoilerGearShoot());
         autoProgram.addObject("Left Boiler -L- Gear & Shoot", new LeftBoilerGearShoot());
@@ -121,7 +122,7 @@ public class Robot extends BBIterativeRobot {
         //autoProgram.addObject("Shelf Destruct", new RightBoiler40BallSweep());
         autoProgram.addObject("Right Boiler 40 Ball v2", new RightBoiler40Ballv2());
         autoProgram.addObject("Right Boiler -R- Gear Vision & Shoot", new RightBoilerGearShootVision());
-        
+        autoProgram.addObject("Right Boiler -L- Gear & SPRINT", new RightBoilerLeftGearSprint());
         
         SmartDashboard.putData("Auto Program", autoProgram);
         
