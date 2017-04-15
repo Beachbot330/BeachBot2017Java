@@ -47,7 +47,7 @@ public class ShootWithWingsAuto extends BBCommand {
     	Robot.pickup.wingsOpen();
     	wingsOpened = true;	
     	timer = Timer.getFPGATimestamp()+ 3.2;
-    	timer2 = Timer.getFPGATimestamp() + 8.2;
+    	timer2 = Timer.getFPGATimestamp() + 7.2;
     	interval = 0.8;
     	duration = 0.04;
     }
