@@ -306,6 +306,10 @@ public class Frills extends Subsystem {
 	public void gearLightOff(){
 		gearLight.set(false);
 	}
+	
+	public Alarm getAlarmLEDs() {
+		return alarmLEDs;
+	}
 
 	
 }
