@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj.util.WPILibVersion;
 import org.usfirst.frc330.commands.*;
 import org.usfirst.frc330.commands.autocommands.*;
 import org.usfirst.frc330.subsystems.*;
+import org.usfirst.frc330.subsystems.Frills.Alarm;
 import org.usfirst.frc330.util.BeachbotLibVersion;
 import org.usfirst.frc330.util.Buzzer;
 import org.usfirst.frc330.util.CSVLogger;
@@ -101,7 +102,7 @@ public class Robot extends BBIterativeRobot {
     
         buzzer.enable(0.75);
         frills.setGreenLEDs(false);
-        frills.setAlarmLED(Frills.Alarm.OFF);
+        frills.setAlarmLED(Alarm.SLOW);
         frills.setDecorativeStyleLED(Frills.Style.TWINKLE);
         
         autoProgram = new SendableChooser<Command>();
@@ -155,6 +156,9 @@ public class Robot extends BBIterativeRobot {
     	Logger.getInstance().updateDate();
     	CSVLogger.getInstance().updateDate();
     	buzzer.update();
+    	if (frills.getAlarmLEDs() == Alarm.SLOW && !Robot.chassis.isGyroCalibrating()) {
+    		frills.setAlarmLED(Alarm.OFF);
+    	}
     }
 
     public void autonomousInit() {
@@ -255,7 +259,6 @@ public class Robot extends BBIterativeRobot {
      */
     @Override
     public void disconnectedPeriodic() {
-    	buzzer.update();
     	disabledPeriodic();
     }
     

@@ -609,4 +609,8 @@ public class Chassis extends Subsystem {
 	public boolean getClimbing(){
 		return m_climbing;
 	}
+	
+	public boolean isGyroCalibrating() {
+		return imu.isCalibrating();
+	}
 }
