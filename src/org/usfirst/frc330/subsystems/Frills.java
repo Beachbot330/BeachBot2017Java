@@ -63,7 +63,7 @@ public class Frills extends Subsystem {
     private UsbCamera shooterCam;
     
     public Frills() {
-    	CSVLoggable temp = new CSVLoggable() {
+    	CSVLoggable temp = new CSVLoggable(true) {
 			public double get() { return DriverStation.getInstance().getMatchTime(); }
     	};
     	CSVLogger.getInstance().add("MatchTime", temp);
