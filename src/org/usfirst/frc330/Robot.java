@@ -125,6 +125,7 @@ public class Robot extends BBIterativeRobot {
         autoProgram.addObject("Right Boiler -R- Gear Vision & Shoot", new RightBoilerGearShootVision());
         autoProgram.addObject("Right Boiler -L- Gear & SPRINT", new RightBoilerLeftGearSprint());
         autoProgram.addObject("Right Boiler -L- Gear & CATCH", new RightBoilerLeftGearCatch());
+        autoProgram.addObject("Right Boiler -R- Gear & Shoot NEW", new RightBoilerGearShootNEW());
         SmartDashboard.putData("Auto Program", autoProgram);
         
     }
