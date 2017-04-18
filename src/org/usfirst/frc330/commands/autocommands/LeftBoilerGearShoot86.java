@@ -13,9 +13,9 @@ import org.usfirst.frc330.commands.WaitCommand;
 /**
  *
  */
-public class RightBoilerGearShoot86 extends BBCommandGroup {
+public class LeftBoilerGearShoot86 extends BBCommandGroup {
 
-    public RightBoilerGearShoot86() {
+    public LeftBoilerGearShoot86() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -42,32 +42,32 @@ public class RightBoilerGearShoot86 extends BBCommandGroup {
     	addSequential(new WaitCommand(0.3));
     	addSequential(new ShiftLow());
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(-24, 107, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
+    	addSequential(new TurnGyroWaypoint(24, 107, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
     	//addSequential(new WaitCommand(5));
-    	addSequential(new DriveWaypoint(-24, 107, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
+    	addSequential(new DriveWaypoint(24, 107, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
     	addSequential(new WaitCommand(0.3));
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
     	//DriveDistance(double distance, double tolerance, PIDGains gains)
     	addParallel(new IgniteSun());
     	//addSequential(new DriveDistance(-36, 3, ChassisConst.DriveLow)); //away from airship
-    	addSequential(new DriveWaypointBackward(5, 85, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
+    	addSequential(new DriveWaypointBackward(-5, 85, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	addSequential(new ShiftLow());
     	addSequential(new PrepareToShoot(ShooterConst.RIGHT_AUTO));
     	//double x, double y, double tolerance, double timeout, PIDGains gains
     	
     	
-    	addSequential(new TurnGyroWaypoint(50, 24, 3, 3, new PIDGains(0.020,0,0.050,0,0.6,1,"GyroTurnLowSpecial") )); //turn to boiler 180
+    	addSequential(new TurnGyroWaypoint(-50, 24, 3, 3, new PIDGains(0.020,0,0.050,0,0.6,1,"GyroTurnLowSpecial") )); //turn to boiler 180
     	
     	//addSequential(new WaitCommand(0.3));
     	addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW));
     	addParallel(new ShootWithWingsAgitate( ));
     	addSequential(new WaitCommand(1.0));
 
-    	addSequential(new TurnGyroWaypoint(5, 200, 3, 3, ChassisConst.GyroTurnLow )); 
+    	addSequential(new TurnGyroWaypoint(-5, 200, 3, 3, ChassisConst.GyroTurnLow )); 
     	addSequential(new ShiftHigh());
     	addSequential(new WingsClosed());
-    	addSequential(new DriveWaypoint(5, 200, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
+    	addSequential(new DriveWaypoint(-5, 200, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
     	
     }	
     }

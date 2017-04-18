@@ -108,25 +108,27 @@ public class Robot extends BBIterativeRobot {
         autoProgram = new SendableChooser<Command>();
         autoProgram.addDefault("Do Nothing", new DoNothing());
         //autoProgram.addObject("Z_JoeTest", new JoeTest());
-        autoProgram.addObject("Right Boiler -C- Gear & Shoot", new RightBoilerCenterGearShoot());
-        autoProgram.addObject("Right Boiler -C- Gear, Shoot & CATCH", new RightBoilerCenterGearShootCatch());
-        autoProgram.addObject("Left Boiler -C- Gear & Shoot", new LeftBoilerCenterGearShoot());
-        autoProgram.addObject("Right Boiler -R- Gear & Shoot", new RightBoilerGearShoot());
-        autoProgram.addObject("Left Boiler -L- Gear & Shoot", new LeftBoilerGearShoot());
+        //autoProgram.addObject("Right Boiler -C- Gear & Shoot", new RightBoilerCenterGearShoot());
+        //autoProgram.addObject("Right Boiler -C- Gear, Shoot & CATCH", new RightBoilerCenterGearShootCatch());
+       // autoProgram.addObject("Left Boiler -C- Gear & Shoot", new LeftBoilerCenterGearShoot());
+       // autoProgram.addObject("Right Boiler -R- Gear & Shoot", new RightBoilerGearShoot());
+       // autoProgram.addObject("Left Boiler -L- Gear & Shoot", new LeftBoilerGearShoot());
         //autoProgram.addObject("TurnTest", new Turntest());
         //autoProgram.addObject("ShootTest", new ShootTest());
         //autoProgram.addObject("Right Boiler -L- Gear & Shoot", new NotRightBoilerGearShoot());
         //autoProgram.addObject("Left Boiler -R- Gear & Shoot", new NotLeftBoilerGearShoot());
         autoProgram.addObject("Right Boiler 40 Ball", new RightBoiler40BallSweep());
+        autoProgram.addObject("SPECIAL - Right Boiler 40 Ball, no bump", new RightBoiler40BallSweepNoBump());
         autoProgram.addObject("Left Boiler 40 Ball", new LeftBoiler40BallSweep());
        // autoProgram.addObject("Right Boiler -L- Gear & Hopper", new RightBoilerLeftGearHopper());
         //autoProgram.addObject("Shelf Destruct", new RightBoiler40BallSweep());
       //  autoProgram.addObject("Right Boiler 40 Ball v2", new RightBoiler40Ballv2());
        // autoProgram.addObject("Right Boiler -R- Gear Vision & Shoot", new RightBoilerGearShootVision());
-        autoProgram.addObject("Right Boiler -L- Gear & SPRINT", new RightBoilerLeftGearSprint());
-        autoProgram.addObject("Right Boiler -L- Gear & CATCH", new RightBoilerLeftGearCatch());
-        autoProgram.addObject("Right Boiler -R- Gear & Shoot 86", new RightBoilerGearShoot86());
-        autoProgram.addObject("Right Boiler -R- Gear & Shoot 6", new RightBoilerGearShoot6());
+     //   autoProgram.addObject("Right Boiler -L- Gear & SPRINT", new RightBoilerLeftGearSprint());
+        autoProgram.addObject("Right Boiler -L- Shoot under boiler", new RightBoilerLeftGearCatch());
+        autoProgram.addObject("Right Boiler -R- Shoot and drive away", new RightBoilerGearShoot86());
+       // autoProgram.addObject("Right Boiler -R- Gear & Shoot 6", new RightBoilerGearShoot6());
+        autoProgram.addObject("Left Boiler -L- Shoot and drive away", new LeftBoilerGearShoot86());
 
         SmartDashboard.putData("Auto Program", autoProgram);
         

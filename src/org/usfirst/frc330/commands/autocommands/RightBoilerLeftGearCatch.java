@@ -5,6 +5,7 @@ import org.usfirst.frc330.commands.commandgroups.*;
 import org.usfirst.frc330.commands.drivecommands.*;
 import org.usfirst.frc330.constants.ChassisConst;
 import org.usfirst.frc330.constants.ShooterConst;
+import org.usfirst.frc330.wpilibj.PIDGains;
 
 import edu.wpi.first.wpilibj.command.BBCommandGroup;
 
@@ -49,47 +50,40 @@ public class RightBoilerLeftGearCatch extends BBCommandGroup {
     	
     	//DRIVE AWAY FROM AIRSHIP, TURN ON LED, TURN AND DRIVE TOWARDS BOILER
     	addSequential(new IgniteSun());
-    	addParallel(new PrepareToShoot(ShooterConst.RIGHT_AUTO)); //starts rollers and shooter
-    	addSequential(new DriveWaypointBackward(0, 77, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //away from airship
-    	addSequential(new TurnGyroWaypoint(180, 30, 3, 3, ChassisConst.GyroTurnLow )); //150 test
+    	addParallel(new PrepareToShoot(ShooterConst.EXTRA_CLOSE)); //starts rollers and shooter
+    	addSequential(new DriveWaypointBackward(20, 77, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //away from airship
     	
-    	
-    	//GET CLOSER AND PREPARE TO SHOOT
-    	
-     	
-    	
-    	//DriveDistance(double distance, double tolerance, PIDGains gains)
-    	//addSequential(new DriveDistance(48, 3, ChassisConst.DriveLow));
-    	
-    	addSequential(new ShiftHigh()); 
+    	addSequential(new TurnGyroWaypointBackward(20, 20, 6, 3, ChassisConst.GyroTurnLow )); //
+    	addSequential(new DriveWaypointBackward(20, 20, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); // drive to wall
 
-    	addSequential(new DriveWaypoint(180, 30, 6, 3, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
-    	//AIM AND SHOOT, TURN OFF SHOOTER
-    	addSequential(new ShiftLow()); 
     	
-    	addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW)); //aim at boiler
-    	addParallel(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
+    	addSequential(new TurnGyroWaypoint(212, 20, 5, 2, ChassisConst.GyroTurnLow)); //   
+    	addSequential(new ShiftHigh()); 
+    	addSequential(new DriveWaypoint(212, 20, 6, 3, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
+
+    	
+//    TurnGyroAbs(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains) {
+
+    	addSequential(new ShiftLow()); 
+
+    	addSequential(new TurnGyroAbs(130, 5, 2,true, ChassisConst.GyroTurnLow)); 
+
+    	
+    	//addSequential(new ShiftLow()); 
+    	//addSequential(new TurnGyroWaypoint(204, 42, 6, 1, ChassisConst.GyroTurnLow)); //   
+    	//addSequential(new DriveWaypoint(204, 42, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
+    	
+
+    	//addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW)); //aim at boiler
+    	//addParallel(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
 
     	addParallel(new ShootWithWingsAgitate()); // shoot
     	addSequential(new WaitCommand(1.0));
-    	//CODE TO STOP SHOOTER NEEDED??
-    	addSequential(new ShooterStop());
-    
     	
-    	//TURN AND DRIVE TO NEAR HOPPER, TURN AGAIN AND DRIVE TO HOPPER
-    	
-    	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	//addSequential(new TurnGyroWaypoint(30, 175, 3, 3, ChassisConst.GyroTurnLow )); //turn to near hopper
-    	addSequential(new WingsClosed()); 
-    	
-    	addSequential(new TurnGyroWaypoint(180, 300, 3, 3, ChassisConst.GyroTurnLow )); //turn to hopper 
-    	addSequential(new ShiftHigh()); 
-    	addSequential(new DriveWaypoint(180, 300, 3, 3, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
-    	
-    	
-   
-
-   	
+    	//    	20,20  waypoint 1
+    	//		174,20
+    	//		204, 42
+    	//  	222, 32
 
     	
     	
