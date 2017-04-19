@@ -21,12 +21,12 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 /**
  *
  */
-public class LeftBoiler40BallSweep extends BBCommandGroup {
+public class LeftBoiler40BallSweepNoBump extends BBCommandGroup {
 
 	PIDGains SecretSauce1   = new PIDGains(0.001,0.001,0.000,0,0.5,1,"SecretSauce1");
 	PIDGains SecretSauce2   = new PIDGains(0.003,0.0005,0.000,0,0.5,1,"SecretSauce2");
 	
-    public LeftBoiler40BallSweep() {
+    public LeftBoiler40BallSweepNoBump() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -58,8 +58,8 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	addSequential(new WingsOpen()); //catch ALL the balls
     	//TurnGyroRel(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains)
     	//addSequential(new TurnGyroRel(-15, 3, 3, true, ChassisConst.GyroTurnLow)); //bump ball hopper
-    	addSequential(new TurnGyroRel(-20, 3.0, 0.25, true, ChassisConst.GyroTurnLow));
-    	addSequential(new TurnGyroRel(5, 2.0, 0.25, true, ChassisConst.GyroTurnLow));
+    	//addSequential(new TurnGyroRel(-20, 3.0, 0.25, true, ChassisConst.GyroTurnLow));
+    	//addSequential(new TurnGyroRel(5, 2.0, 0.25, true, ChassisConst.GyroTurnLow));
     	
     	addSequential(new IgniteSun());
     	//addSequential(new WaitCommand(1)); //try to reduce
