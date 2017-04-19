@@ -36,38 +36,39 @@ public class LeftBoilerRightGearCatch extends BBCommandGroup {
     	addSequential(new GearGrab());
     	addSequential(new ShiftLow());
  
+    	//Drive Forward
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 77, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
-    	addSequential(new WaitCommand(0.3));
+    	//addSequential(new WaitCommand(0.3)); // Don't see why this is here, so I am removing it --AP 4/18
     	
+    	// Drive to Airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(-39, 106, 3, 1, ChassisConst.GyroTurnLow)); //turn to airship
-    	addSequential(new DriveWaypoint(-39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
+    	addSequential(new TurnGyroWaypoint(-39, 106, 3, 1, ChassisConst.GyroTurnLow));
+    	addSequential(new DriveWaypoint(-39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	
+    	//Drop off Gear
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
     	
-    	//DRIVE AWAY FROM AIRSHIP, TURN ON LED, TURN AND DRIVE TOWARDS BOILER
+    	// Prepare to shoot and drive back from airship
     	addSequential(new IgniteSun());
     	addParallel(new PrepareToShoot(ShooterConst.EXTRA_CLOSE)); //starts rollers and shooter
-    	addSequential(new DriveWaypointBackward(-20, 77, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //away from airship
+    	addSequential(new DriveWaypointBackward(-20, 77, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	
-    	addSequential(new TurnGyroWaypointBackward(-20, 20, 6, 3, ChassisConst.GyroTurnLow )); //
-    	addSequential(new DriveWaypointBackward(-20, 20, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); // drive to wall
+    	// Drive towards wall
+    	addSequential(new TurnGyroWaypointBackward(-20, 20, 6, 3, ChassisConst.GyroTurnLow ));
+    	addSequential(new DriveWaypointBackward(-20, 20, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); 
 
-    	
-    	addSequential(new TurnGyroWaypoint(-212, 20, 5, 2, ChassisConst.GyroTurnLow)); //   
+    	// Drive across wall
+    	addSequential(new TurnGyroWaypoint(-212, 20, 5, 2, ChassisConst.GyroTurnLow)); 
     	addSequential(new ShiftHigh()); 
     	addSequential(new DriveWaypoint(-212, 20, 6, 3, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
 
-    	
-//    TurnGyroAbs(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains) {
-
+    	// Wall bump turn
     	addSequential(new ShiftLow()); 
-
     	addSequential(new TurnGyroAbs(-130, 5, 2,true, ChassisConst.GyroTurnLow)); 
 
-
+    	// Shoot
     	addParallel(new ShootWithWingsAgitate()); // shoot
     	
     }

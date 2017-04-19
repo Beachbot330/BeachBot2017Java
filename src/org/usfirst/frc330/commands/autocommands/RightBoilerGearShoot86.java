@@ -33,41 +33,45 @@ public class RightBoilerGearShoot86 extends BBCommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new DriveCamVisionOn());
-    	addParallel(new GearGrab());
-    	addSequential(new ShiftLow()); //change to ShiftHigh
-    	//addSequential(new WaitCommand(2));
-    	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 90, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
-    	addSequential(new WaitCommand(0.3));
+    	addSequential(new DriveCamVisionOn());
+    	addSequential(new GearGrab());
     	addSequential(new ShiftLow());
+    	
+    	//Drive forward
+    	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
+    	addSequential(new DriveWaypoint(0, 90, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
+    	//addSequential(new WaitCommand(0.3)); // I don't know why this is here, so I am removing it --AP 4/18
+
+    	//Turn to airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(-24, 107, 2, 1, ChassisConst.GyroTurnLow)); //turn to airship
-    	//addSequential(new WaitCommand(5));
-    	addSequential(new DriveWaypoint(-24, 107, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
-    	addSequential(new WaitCommand(0.3));
+    	addSequential(new TurnGyroWaypoint(-24, 107, 2, 1, ChassisConst.GyroTurnLow));
+    	addSequential(new DriveWaypoint(-24, 107, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
+    	
+    	//Drop off Gear
+    	//addSequential(new WaitCommand(0.3)); // I don't know why this is here, so I am removing it --AP 4/18
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
-    	//DriveDistance(double distance, double tolerance, PIDGains gains)
-    	addParallel(new IgniteSun());
-    	//addSequential(new DriveDistance(-36, 3, ChassisConst.DriveLow)); //away from airship
+    	
+    	//Drive away from airship
     	addSequential(new DriveWaypointBackward(5, 85, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
-    	addSequential(new ShiftLow());
+    	
+    	//Prepare Shooter
+    	addSequential(new IgniteSun());
     	addSequential(new PrepareToShoot(ShooterConst.RIGHT_AUTO));
-    	//double x, double y, double tolerance, double timeout, PIDGains gains
     	
-    	
+    	//Aim
     	addSequential(new TurnGyroWaypoint(50, 24, 3, 3, new PIDGains(0.020,0,0.050,0,0.6,1,"GyroTurnLowSpecial") )); //turn to boiler 180
-    	
-    	//addSequential(new WaitCommand(0.3));
     	addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW));
+    	
+    	//Shoot
     	addParallel(new ShootWithWingsAgitate( ));
-    	addSequential(new WaitCommand(1.0));
+    	addSequential(new WaitCommand(ShooterConst.TIME_TO_SHOOT_10_BALLS));
 
-    	addSequential(new TurnGyroWaypoint(5, 200, 3, 3, ChassisConst.GyroTurnLow )); 
+    	//Turn and dash
+    	addSequential(new TurnGyroWaypoint(5, 250, 3, 3, ChassisConst.GyroTurnLow )); 
     	addSequential(new ShiftHigh());
     	addSequential(new WingsClosed());
     	addSequential(new DriveWaypoint(5, 200, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
     	
     }	
-    }
+}

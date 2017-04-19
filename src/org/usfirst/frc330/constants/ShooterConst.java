@@ -3,6 +3,8 @@ package org.usfirst.frc330.constants;
 import org.usfirst.frc330.util.TalonPIDSettings;
 
 public class ShooterConst {
+	
+	public static final double TIME_TO_SHOOT_10_BALLS = 1.0;
 	                                                                 		// P     I     D     F       rampRate  RPM    tol     Hood
 	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.993);   // AP 3-25
 	public static final TalonPIDSettings CLOSE 			= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.989);   // AP 3-25 TOok off 0.004 per Shane

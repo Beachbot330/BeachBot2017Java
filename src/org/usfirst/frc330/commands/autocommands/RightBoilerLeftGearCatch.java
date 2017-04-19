@@ -32,60 +32,46 @@ public class RightBoilerLeftGearCatch extends BBCommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new DriveCamVisionOn());
-    	addParallel(new GearGrab());
-    	addParallel(new ShiftLow());
+    	addSequential(new DriveCamVisionOn());
+    	addSequential(new GearGrab());
+    	addSequential(new ShiftLow());
  
+    	//Drive Forward
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 77, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
-    	addSequential(new WaitCommand(0.3));
+    	//addSequential(new WaitCommand(0.3));  // I don't see why it is needed, so I am commenting it out. -AP 4/18
     	
+    	//Drive to airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(39, 106, 3, 1, ChassisConst.GyroTurnLow)); //turn to airship
+    	addSequential(new TurnGyroWaypoint(39, 106, 3, 1, ChassisConst.GyroTurnLow));
+    	addSequential(new DriveWaypoint(39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	
-    	
-    	addSequential(new DriveWaypoint(39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive into airship (Too far)
+    	//Drop off gear
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
     	
-    	//DRIVE AWAY FROM AIRSHIP, TURN ON LED, TURN AND DRIVE TOWARDS BOILER
+    	//Spin up shooter and drive away from peg
     	addSequential(new IgniteSun());
     	addParallel(new PrepareToShoot(ShooterConst.EXTRA_CLOSE)); //starts rollers and shooter
     	addSequential(new DriveWaypointBackward(20, 77, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //away from airship
     	
+    	//Drive to wall
     	addSequential(new TurnGyroWaypointBackward(20, 20, 6, 3, ChassisConst.GyroTurnLow )); //
     	addSequential(new DriveWaypointBackward(20, 20, 6, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); // drive to wall
 
-    	
+    	//Drive along wall
     	addSequential(new TurnGyroWaypoint(212, 20, 5, 2, ChassisConst.GyroTurnLow)); //   
     	addSequential(new ShiftHigh()); 
     	addSequential(new DriveWaypoint(212, 20, 6, 3, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
 
-    	
-//    TurnGyroAbs(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains) {
-
+    	//Bump turn into boiler
     	addSequential(new ShiftLow()); 
-
     	addSequential(new TurnGyroAbs(130, 5, 2,true, ChassisConst.GyroTurnLow)); 
 
     	
-    	//addSequential(new ShiftLow()); 
-    	//addSequential(new TurnGyroWaypoint(204, 42, 6, 1, ChassisConst.GyroTurnLow)); //   
-    	//addSequential(new DriveWaypoint(204, 42, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
-    	
-
-    	//addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW)); //aim at boiler
-    	//addParallel(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
-
+    	//Shoot
     	addParallel(new ShootWithWingsAgitate()); // shoot
     	addSequential(new WaitCommand(1.0));
-    	
-    	//    	20,20  waypoint 1
-    	//		174,20
-    	//		204, 42
-    	//  	222, 32
-
-    	
     	
     }
 }
