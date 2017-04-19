@@ -40,7 +40,7 @@ public class LeftBoilerGearShoot86 extends BBCommandGroup {
     	// Drive Forward
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 90, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
-    	//addSequential(new WaitCommand(0.3)); //Don't know why this is here, so I am removing it --AP 4/19
+    	addSequential(new WaitCommand(0.3));
     	
     	// Drive to Airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains

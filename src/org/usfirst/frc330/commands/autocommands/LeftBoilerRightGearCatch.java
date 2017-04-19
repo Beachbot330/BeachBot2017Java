@@ -39,7 +39,7 @@ public class LeftBoilerRightGearCatch extends BBCommandGroup {
     	//Drive Forward
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 77, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
-    	//addSequential(new WaitCommand(0.3)); // Don't see why this is here, so I am removing it --AP 4/18
+    	addSequential(new WaitCommand(0.3));
     	
     	// Drive to Airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains
