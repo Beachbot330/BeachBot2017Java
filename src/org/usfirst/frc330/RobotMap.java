@@ -119,7 +119,7 @@ public class RobotMap {
         chassisLeftDrive3 = new Spark(2);
         LiveWindow.addActuator("Chassis", "LeftDrive3", (Spark) chassisLeftDrive3);
         
-        chassisRightDrive1 = new Spark(3);
+        chassisRightDrive1 = new Spark(10);
         LiveWindow.addActuator("Chassis", "RightDrive1", (Spark) chassisRightDrive1);
         
         chassisRightDrive2 = new Spark(4);
@@ -175,7 +175,7 @@ public class RobotMap {
         pickupWings = new BBSolenoid(0, 6);
         LiveWindow.addActuator("Pickup", "Wings", pickupWings);
         
-        pickupPickup1 = new VictorSP(10);
+        pickupPickup1 = new VictorSP(11);
         LiveWindow.addActuator("Pickup", "Pickup1", (VictorSP) pickupPickup1);
         
         pickupPickup2 = new VictorSP(7);

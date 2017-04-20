@@ -4,17 +4,17 @@ import org.usfirst.frc330.util.TalonPIDSettings;
 
 public class ShooterConst {
 	
-	public static final double TIME_TO_SHOOT_10_BALLS = 1.0;
+	public static final double TIME_TO_SHOOT_10_BALLS = 2.0;
 	                                                                 		// P     I     D     F       rampRate  RPM    tol     Hood
-	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.993);   // AP 3-25
-	public static final TalonPIDSettings CLOSE 			= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.989);   // AP 3-25 TOok off 0.004 per Shane
+	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  1.0);   // AP 4-19
+	public static final TalonPIDSettings CLOSE 			= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  0.9966);   // AP 4-19
 	public static final TalonPIDSettings FAR 		    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.94);   // WAG
 	public static final TalonPIDSettings JIFFY_POP	    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    1200,  100.0,  0.85);   // AP
 	public static final TalonPIDSettings RECIRCULATE    = new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 0.000,    -100,  200.0,  0.99);   // AP 3-11
 	public static final TalonPIDSettings CENTER_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    4150,  100.0,  0.923);	//zac 3-18 WAG
-	public static final TalonPIDSettings RB_KPA 		= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.96);	//AP 4-8-17, was 3700 RPM
-	public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.937);	//zac 3-20 WAG
-	//public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.2,   0.0,  0.0,  0.005, 100.0,    3750,  100.0,  0.937);
+	public static final TalonPIDSettings RB_KPA 		= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3500,  100.0,  0.96);	//AP 4-19 Rect width: 38
+	//public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.937);	//zac 3-20 Checked AP 4-19, kinda flat
+	public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3650,  100.0,  0.944);   //AP 4-19 Rect Width: 
 	public static final TalonPIDSettings FARSIDE_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    4150,  100.0,  0.930);	//SP 3-20 WAG
 	public static final TalonPIDSettings DEFAULT        = CLOSE;
 	

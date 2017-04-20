@@ -39,6 +39,9 @@ public final class ChassisConst {
     //Turn Camera						double p, double i, double d, double f, double maxOutput, double maxOutputStep, String name
     public static final PIDGains CAMERA_LOW		= new PIDGains(0.009, 0, 0.01, 0.0, 0.15, 0.05, "CameraTurnLow");
     
+    //Dash Distance
+    public static final double DASH_DISTANCE	= 250;
+    
     // Used for Frills for PDP
     public enum Devices {
         DRIVETRAIN_LEFT1 (0),

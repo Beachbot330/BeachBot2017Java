@@ -67,13 +67,13 @@ public class LeftBoilerGearShoot86 extends BBCommandGroup {
     	
     	// Shoot
     	addParallel(new ShootWithWingsAgitate( ));
-    	addSequential(new WaitCommand(1.0));
+    	addSequential(new WaitCommand(ShooterConst.TIME_TO_SHOOT_10_BALLS));
 
     	// Turn and dash
     	addSequential(new TurnGyroWaypoint(-5, 200, 3, 3, ChassisConst.GyroTurnLow )); 
     	addSequential(new ShiftHigh());
     	addSequential(new WingsClosed());
-    	addSequential(new DriveWaypoint(-5, 250, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
+    	addSequential(new DriveWaypoint(-5, ChassisConst.DASH_DISTANCE, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
     	
     }	
 }

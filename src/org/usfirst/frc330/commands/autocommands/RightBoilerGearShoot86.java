@@ -61,7 +61,8 @@ public class RightBoilerGearShoot86 extends BBCommandGroup {
     	
     	//Aim
     	addSequential(new TurnGyroWaypoint(50, 24, 3, 3, new PIDGains(0.020,0,0.050,0,0.6,1,"GyroTurnLowSpecial") )); //turn to boiler 180
-    	addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW));
+    	addSequential(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW));
+    	addSequential(new WaitCommand(0.5));
     	
     	//Shoot
     	addParallel(new ShootWithWingsAgitate( ));
@@ -71,7 +72,7 @@ public class RightBoilerGearShoot86 extends BBCommandGroup {
     	addSequential(new TurnGyroWaypoint(5, 250, 3, 3, ChassisConst.GyroTurnLow )); 
     	addSequential(new ShiftHigh());
     	addSequential(new WingsClosed());
-    	addSequential(new DriveWaypoint(5, 200, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
+    	addSequential(new DriveWaypoint(5, ChassisConst.DASH_DISTANCE, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
     	
     }	
 }

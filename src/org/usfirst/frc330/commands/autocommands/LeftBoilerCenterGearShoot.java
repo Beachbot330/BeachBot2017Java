@@ -33,30 +33,36 @@ public class LeftBoilerCenterGearShoot extends BBCommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new DriveCamVisionOn());
-    	addParallel(new GearGrab());
-    	//addSequential(new WaitCommand(2));
-    	addParallel(new ShiftLow());
+    	addSequential(new DriveCamVisionOn());
+    	addSequential(new GearGrab());
+    	addSequential(new ShiftLow());
+    	
+    	// Drive Forward to airship
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypoint(0, 72, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh ));
-    	addSequential(new WaitCommand(0.3));
+    	
+    	// Drop off gear
     	addSequential(new GearDropOff());
     	addSequential(new WaitCommand(0.3));
+    	
+    	// Drive Backwards
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
     	addSequential(new DriveWaypointBackward(0, 44, 3, 1, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh));
     	addSequential(new WaitCommand(0.3));
-    	addParallel(new ShiftLow( ));
+    	
+    	//Prepare to shoot
+    	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
+    	
+    	// Aim
     	//double x, double y, double tolerance, double timeout, PIDGains gains
     	addParallel(new IgniteSun());
     	addSequential(new TurnGyroWaypoint(-156, 20, 3, 1.5, ChassisConst.GyroTurnLow ));
-    	addSequential(new WaitCommand(0.3));
-    	//addSequential(new ( ));		aim robot for high shot maybe later
-    	//addParallel(new ( ));			create wing move 1hz maybe late
-    	addParallel(new PrepareToShoot(ShooterConst.CENTER_AUTO));
     	addParallel(new TurnCamera("target", 3.0, 15, 6, true, ChassisConst.CAMERA_LOW));
-    	addSequential(new WaitCommand(1.5));
+    	addSequential(new WaitCommand(0.5));
+    	
+    	// Shoot
     	addSequential(new ShootWithWingsAgitate( ));
-    	addParallel(new ShiftHigh());
+    	
     	
     	
     	
