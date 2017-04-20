@@ -52,6 +52,7 @@ public class Climb extends BBCommand {
     	if(Robot.oi.operator.getRawButton(6)){
     		if(!ratchetEngaged){
     			Robot.shooter.climberLock();
+    			Robot.shooter.stopShooter();
     			ratchetEngaged=true;
     		}
     		if(!climbing){

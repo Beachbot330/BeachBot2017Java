@@ -6,7 +6,8 @@ public class ShooterConst {
 	
 	public static final double TIME_TO_SHOOT_10_BALLS = 2.0;
 	                                                                 		// P     I     D     F       rampRate  RPM    tol     Hood
-	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  1.0);   // AP 4-19
+	//public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  1.0);   // AP 4-19
+	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.9966);   // AP 4-20
 	public static final TalonPIDSettings CLOSE 			= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  0.9966);   // AP 4-19
 	public static final TalonPIDSettings AUTO_CATCH		= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3500,  100.0,  0.9966);  // AP WAG 4-19
 	public static final TalonPIDSettings FAR 		    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.94);   // WAG
