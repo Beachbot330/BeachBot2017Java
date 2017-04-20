@@ -251,12 +251,14 @@ public class Frills extends Subsystem {
     public void initDriverCamera(){
     	try {
     		driverCam = CameraServer.getInstance().startAutomaticCapture("Driver", "/dev/v4l/by-path/platform-ci_hdrc.0-usb-0:1.2.2:1.0-video-index0");
+    		//if (!driverCam.setResolution(160, 120))
     		if (!driverCam.setResolution(160, 120))
     			Logger.getInstance().println("Resolution failed to set", Severity.ERROR);
-    		if (!driverCam.setFPS(15))
+    		if (!driverCam.setFPS(30))
     			Logger.getInstance().println("FPS failed to set", Severity.ERROR);
     		Logger.getInstance().println("DriverCam Get Video Mode: " + driverCam.getVideoMode().width +
     				", " + driverCam.getVideoMode().height + ", " + driverCam.getVideoMode().fps, Severity.DEBUG);
+    		driverCam.setExposureManual(50);
     	}
     	catch (Exception ex) {
     		Logger.getInstance().println("Exception initializing Driver Camera", Severity.ERROR);
