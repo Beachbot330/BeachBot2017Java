@@ -46,7 +46,7 @@ public class LeftBoilerCenterGearCatch extends BBCommandGroup {
     	addSequential(new WaitCommand(0.3));
     	
     	//Spin Up
-    	addSequential(new PrepareToShoot(ShooterConst.CLOSE));
+    	addSequential(new PrepareToShoot(ShooterConst.AUTO_CATCH));
     	
     	//Drive to wall
     	addSequential(new TurnGyroWaypointBackward(0, 20, 6, 3, ChassisConst.GyroTurnLow )); //

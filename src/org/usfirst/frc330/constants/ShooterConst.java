@@ -8,6 +8,7 @@ public class ShooterConst {
 	                                                                 		// P     I     D     F       rampRate  RPM    tol     Hood
 	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  1.0);   // AP 4-19
 	public static final TalonPIDSettings CLOSE 			= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  0.9966);   // AP 4-19
+	public static final TalonPIDSettings AUTO_CATCH		= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3500,  100.0,  0.9966);  // AP WAG 4-19
 	public static final TalonPIDSettings FAR 		    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.94);   // WAG
 	public static final TalonPIDSettings JIFFY_POP	    = new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    1200,  100.0,  0.85);   // AP
 	public static final TalonPIDSettings RECIRCULATE    = new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 0.000,    -100,  200.0,  0.99);   // AP 3-11
