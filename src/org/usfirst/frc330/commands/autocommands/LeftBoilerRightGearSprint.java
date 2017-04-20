@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.command.BBCommandGroup;
 /**
  *
  */
-public class RightBoilerLeftGearSprint extends BBCommandGroup {
+public class LeftBoilerRightGearSprint extends BBCommandGroup {
 
-    public RightBoilerLeftGearSprint() {
+    public LeftBoilerRightGearSprint() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -43,8 +43,8 @@ public class RightBoilerLeftGearSprint extends BBCommandGroup {
     	
     	// Drive to Airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(39, 106, 3, 1, ChassisConst.GyroTurnLow));
-    	addSequential(new DriveWaypoint(39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
+    	addSequential(new TurnGyroWaypoint(-39, 106, 3, 1, ChassisConst.GyroTurnLow));
+    	addSequential(new DriveWaypoint(-39, 106, 6, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	
     	// Drop off gear
     	addSequential(new GearDropOff());
@@ -58,7 +58,7 @@ public class RightBoilerLeftGearSprint extends BBCommandGroup {
     	addSequential(new DriveWaypointBackward(0, 77, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	
     	// Drive towards boiler
-    	addSequential(new TurnGyroWaypoint(150, 20, 3, 3, ChassisConst.GyroTurnLow ));
+    	addSequential(new TurnGyroWaypoint(-150, 20, 3, 3, ChassisConst.GyroTurnLow ));
     	addSequential(new DriveDistanceAtCurAngle(48, 3, 2, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow));
     	//double distance, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
 
@@ -66,7 +66,7 @@ public class RightBoilerLeftGearSprint extends BBCommandGroup {
     	addSequential(new TurnCamera("target", 3.0, 15, 1.5, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addParallel(new TurnCamera("target", 3.0, 15, 3, true, ChassisConst.CAMERA_LOW)); //aim at boiler
     	addParallel(new ShootWithWingsAgitate()); // shoot
-    	addSequential(new WaitCommand(ShooterConst.TIME_TO_SHOOT_10_BALLS));
+    	addSequential(new WaitCommand(1.0));
     	//CODE TO STOP SHOOTER NEEDED??
     	addSequential(new ShooterStop());
     
