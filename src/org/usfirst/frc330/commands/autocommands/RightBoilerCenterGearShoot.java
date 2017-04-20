@@ -39,7 +39,7 @@ public class RightBoilerCenterGearShoot extends BBCommandGroup {
     	
     	// Drive Forward to Airship
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 72, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to airship
+    	addSequential(new DriveWaypoint(0, 74, 3, 4, true, ChassisConst.DriveHigh, ChassisConst.GyroDriveHigh )); //drive to airship
     	
     	// Drop off gear
     	addSequential(new GearDropOff());

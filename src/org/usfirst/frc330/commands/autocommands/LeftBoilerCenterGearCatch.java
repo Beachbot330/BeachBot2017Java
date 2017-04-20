@@ -38,7 +38,7 @@ public class LeftBoilerCenterGearCatch extends BBCommandGroup {
  
     	//Drive To Airship
     	//double x, double y, double tolerance, double timeout, boolean stopAtEnd, PIDGains driveGains, PIDGains gyroGains
-    	addSequential(new DriveWaypoint(0, 72, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
+    	addSequential(new DriveWaypoint(0, 74, 3, 4, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow )); //drive before turn
     	addSequential(new WaitCommand(0.3));
     	
     	//Drop off gear

@@ -634,7 +634,7 @@ Children:
           name: Command
           type: Command
           validators: &id034 [TypeDropdownSelected]
-          value: GearDropOff
+          value: GearDropOffTeleop
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id035 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
@@ -663,7 +663,7 @@ Children:
           name: Command
           type: Command
           validators: *id034
-          value: GearDropOff
+          value: GearDropOffTeleop
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id035
           default: whileHeld
@@ -789,7 +789,7 @@ Children:
           name: Command
           type: Command
           validators: *id034
-          value: GearDropOff
+          value: GearDropOffTeleop
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id035
           default: whileHeld
@@ -818,7 +818,7 @@ Children:
           name: Command
           type: Command
           validators: *id034
-          value: GearDropOff
+          value: GearDropOffTeleop
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id035
           default: whileHeld
@@ -2048,6 +2048,27 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: TeleopAutoAim
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id039 []
+        name: Parameter presets
+        validators: null
+        value: *id039
+      Commands: !!robotbuilder.data.properties.ListProperty
+        default: &id040 []
+        name: Commands
+        validators: *id038
+        value: *id040
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command Group
+    Name: GearDropOffTeleop
   Properties: {}
   Base: Commands
   Name: Commands
