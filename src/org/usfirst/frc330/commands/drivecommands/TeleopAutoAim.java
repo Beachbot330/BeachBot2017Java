@@ -74,8 +74,10 @@ public class TeleopAutoAim extends TurnGyroRel {
 			toleranceCount++;
 		else
 			toleranceCount = 0;
-		if(Robot.oi.getDriverL().getY() > 0.1 || Robot.oi.getDriverR().getY()>0.1)
+		if(Robot.oi.getDriverL().getY() > 0.1 || Robot.oi.getDriverR().getY()>0.1){
+			Logger.getInstance().println("Driver Control Asserted over AutoAim", Logger.Severity.WARNING);
 			return true;
+		}
 		else
 			return (getCameraDetected() && toleranceCount > toleranceStableCount) || isTimedOut();   //
 	}

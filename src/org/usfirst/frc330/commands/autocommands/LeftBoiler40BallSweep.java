@@ -57,7 +57,7 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	//addSequential(new DriveWaypointBackward(-47, -80-6, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
     	
     	// Prepare to Shoot
-    	addSequential(new PrepareToShoot(ShooterConst.RB_KPA)); //start agitator and shooter wheels 
+    	addSequential(new PrepareToShoot(ShooterConst.LB_KPA)); //start agitator and shooter wheels 
 
     	addSequential(new WingsOpen()); //catch ALL the balls
 

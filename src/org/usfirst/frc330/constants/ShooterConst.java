@@ -15,6 +15,7 @@ public class ShooterConst {
 	public static final TalonPIDSettings RECIRCULATE    = new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 0.000,    -100,  200.0,  0.99);   // AP 3-11
 	public static final TalonPIDSettings CENTER_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    4150,  100.0,  0.923);	//zac 3-18 WAG
 	public static final TalonPIDSettings RB_KPA 		= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3500,  100.0,  0.96);	//AP 4-19 Rect width: 38
+	public static final TalonPIDSettings LB_KPA 		= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3500,  100.0,  0.9555);	//AP 4-19 Rect width: 38
 	//public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3600,  100.0,  0.937);	//zac 3-20 Checked AP 4-19, kinda flat
 	public static final TalonPIDSettings RIGHT_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    3650,  100.0,  0.944);   //AP 4-19 Rect Width: 
 	public static final TalonPIDSettings FARSIDE_AUTO 	= new TalonPIDSettings(0.25,  0.0,  0.0,  0.005, 100.0,    4150,  100.0,  0.930);	//SP 3-20 WAG

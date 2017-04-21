@@ -117,7 +117,7 @@ public class Robot extends BBIterativeRobot {
         autoProgram.addObject("Right Boiler -C- Shoot Under Boiler", new RightBoilerCenterGearCatch());
 
         //Left Boiler
-        autoProgram.addObject("**Left Boiler 40 Ball", new LeftBoiler40BallSweep());
+        autoProgram.addObject("*Left Boiler 40 Ball", new LeftBoiler40BallSweep());
         autoProgram.addObject("**Left Boiler -R- Shoot under boiler", new LeftBoilerRightGearCatch());
         autoProgram.addObject("**Left Boiler -R- Shoot and dash", new LeftBoilerRightGearSprint());
         autoProgram.addObject("**Left Boiler -L- Shoot and drive away", new LeftBoilerGearShoot86());
