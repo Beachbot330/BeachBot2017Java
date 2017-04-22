@@ -57,9 +57,12 @@ public class RightBoiler40BallSweep extends BBCommandGroup {
     	addSequential(new WingsOpen()); //catch ALL the balls
     	
     	//Bump the Hopper
-    	//TurnGyroRel(double angle, double tolerance, double timeout, boolean stopAtEnd, PIDGains gains)
-    	addSequential(new TurnGyroRel(+20, 3.0, 0.25, true, ChassisConst.GyroTurnLow));
-    	addSequential(new TurnGyroRel(-5, 2.0, 0.25, true, ChassisConst.GyroTurnLow)); 
+    	//addSequential(new TurnGyroRel(+20, 3.0, 0.25, true, ChassisConst.GyroTurnLow));
+    	//addSequential(new TurnGyroRel(-5, 2.0, 0.25, true, ChassisConst.GyroTurnLow)); 
+    	
+    	// Bump the hopper hard
+    	addSequential(new TurnGyroRel(+25, 3.0, 0.25, true, ChassisConst.GyroTurnLow)); 
+    	addSequential(new TurnGyroRel(-10, 2.0, 0.25, true, ChassisConst.GyroTurnLow)); 
     	
     	//Aim
     	addSequential(new IgniteSun());
