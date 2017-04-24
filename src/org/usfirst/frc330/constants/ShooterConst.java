@@ -4,7 +4,7 @@ import org.usfirst.frc330.util.TalonPIDSettings;
 
 public class ShooterConst {
 	
-	public static final double TIME_TO_SHOOT_10_BALLS = 2.0;
+	public static final double TIME_TO_SHOOT_10_BALLS = 3.0;
 	                                                                 		// P     I     D     F       rampRate  RPM    tol     Hood
 	//public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3400,  100.0,  1.0);   // AP 4-19
 	public static final TalonPIDSettings EXTRA_CLOSE	= new TalonPIDSettings(0.2,  0.0,  0.0,  0.0045, 100.0,    3450,  100.0,  0.9966);   // AP 4-20

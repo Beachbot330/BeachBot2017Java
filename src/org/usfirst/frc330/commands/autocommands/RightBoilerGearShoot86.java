@@ -44,8 +44,8 @@ public class RightBoilerGearShoot86 extends BBCommandGroup {
 
     	// Drive to airship
     	//double x, double y, double tolerance, double timeout, PIDGains gains
-    	addSequential(new TurnGyroWaypoint(-24, 107, 2, 1, ChassisConst.GyroTurnLow));
-    	addSequential(new DriveWaypoint(-24, 107, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
+    	addSequential(new TurnGyroWaypoint(-24, 107+4, 2, 1, ChassisConst.GyroTurnLow));
+    	addSequential(new DriveWaypoint(-24, 107+4, 9, 3, true, ChassisConst.DriveLow, ChassisConst.GyroDriveLow ));
     	
     	// Drop off Gear
     	//addSequential(new WaitCommand(0.3)); // I don't know why this is here, so I am removing it --AP 4/18
