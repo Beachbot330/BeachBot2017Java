@@ -14,6 +14,7 @@ package org.usfirst.frc330;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.BBIterativeRobot;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.PeriodicRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -38,7 +39,7 @@ import org.usfirst.frc330.util.Logger.Severity;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends BBIterativeRobot {
+public class Robot extends PeriodicRobot {
 
     Command autonomousCommand;
     SendableChooser<Command> autoProgram;
@@ -244,26 +245,6 @@ public class Robot extends BBIterativeRobot {
      * Disconnected METHODS
      * 
      ****************************************************************/
-    
-    /**
-     * This function is responsible for initialization for disconnected mode. 
-     * 
-     * 1. Log entry for Test Initialization
-     */
-    @Override
-    public void disconnectedInit() {
-    	buzzer.enable(0.2);
-        Logger.getInstance().println("Disconnected Init", true);
-        CSVLogger.getInstance().updateDate();
-    }
-
-    /**
-     * This function is called periodically during disconnected mode
-     */
-    @Override
-    public void disconnectedPeriodic() {
-    	disabledPeriodic();
-    }
     
     public static boolean isPracticeRobot() {
         return (frills.isPracticeRobot());
