@@ -109,6 +109,13 @@ public class Chassis extends Subsystem {
         leftDriveOutput = new DummyPIDOutput();
         rightDriveOutput = new DummyPIDOutput();
         
+        
+        /**
+         * !!!
+         * !!! These PID Controllers run at 20hz by default. For 2018 add a period of 0.02 (50hz) or even 0.005 (200hz).
+         * !!! This will change I & D constants and so shouldn't be implemented for 2017 unless things are retuned.
+         * !!!
+         */
         gyroPID = new MultiPIDController(ChassisConst.GyroTurnLow, gyroSource,gyroOutput,"Gyro");
         leftDrivePID = new MultiPIDController(ChassisConst.DriveLow, driveTrainEncoderL,leftDriveOutput,"LeftDrive");
         rightDrivePID = new MultiPIDController(ChassisConst.DriveLow, driveTrainEncoderR,rightDriveOutput, "RightDrive");
