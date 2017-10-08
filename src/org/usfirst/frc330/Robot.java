@@ -127,6 +127,7 @@ public class Robot extends BBIterativeRobot {
         //SPECIAL autos
         autoProgram.addObject("*SPECIAL - Right Boiler 40 Ball, no bump", new RightBoiler40BallSweepNoBump());
         autoProgram.addObject("*SPECIAL - Left Boiler 40 Ball, no bump", new LeftBoiler40BallSweepNoBump());
+        autoProgram.addObject("Beach Blitz Left Boiler", new BeachBlitzLeftBoiler());
 
         SmartDashboard.putData("Auto Program", autoProgram);
         
