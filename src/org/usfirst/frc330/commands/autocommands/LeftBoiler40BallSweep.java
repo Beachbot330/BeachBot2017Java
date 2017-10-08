@@ -49,8 +49,11 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	addSequential(new ShiftLow());
     	
     	// Sweeping Drive Command
+    	//addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
+    	//addSequential(new DriveWaypointBackward(-47, -80, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
+    	
     	addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
-    	addSequential(new DriveWaypointBackward(-47, -80, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
+    	addSequential(new DriveWaypointBackward(-51.2, -83.8, 5, 3.5, true, ChassisConst.DriveLow, SecretSauce2));
     	
     	// Extra Distance
     	//addSequential(new DriveWaypointBackward(0, -15, 10, 4.0, true, ChassisConst.DriveLow, SecretSauce1));
@@ -66,8 +69,8 @@ public class LeftBoiler40BallSweep extends BBCommandGroup {
     	//addSequential(new TurnGyroRel(5, 2.0, 0.25, true, ChassisConst.GyroTurnLow));
     	
     	// Bump the hopper hard
-    	addSequential(new TurnGyroRel(-25, 3.0, 0.25, true, ChassisConst.GyroTurnLow)); //was -20
-    	addSequential(new TurnGyroRel(10, 2.0, 0.25, true, ChassisConst.GyroTurnLow)); //was 5
+    	addSequential(new TurnGyroRel(-30, 3.0, 0.25, true, ChassisConst.GyroTurnLow)); //was -25
+    	addSequential(new TurnGyroRel(15, 2.0, 0.25, true, ChassisConst.GyroTurnLow)); //was 10
     	
     	// Aim
     	addSequential(new IgniteSun());

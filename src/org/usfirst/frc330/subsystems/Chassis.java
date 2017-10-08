@@ -128,10 +128,11 @@ public class Chassis extends Subsystem {
         
         double pulsePerRevolutionLeft, pulsePerRevolutionRight;
     	pulsePerRevolutionRight = ChassisConst.practicePulsePerRevolution;
-    	if (!Robot.isPracticeRobot())
-    		pulsePerRevolutionLeft = ChassisConst.pulsePerRevolution;
-    	else
-    		pulsePerRevolutionLeft = ChassisConst.practicePulsePerRevolution;
+    	pulsePerRevolutionLeft = ChassisConst.practicePulsePerRevolution;
+    	//if (!Robot.isPracticeRobot())
+    	//	pulsePerRevolutionLeft = ChassisConst.pulsePerRevolution;
+    	//else
+    	//	pulsePerRevolutionLeft = ChassisConst.practicePulsePerRevolution;
         
         double distanceperpulse = Math.PI*ChassisConst.wheelDiameter/pulsePerRevolutionLeft /
         		ChassisConst.encoderGearRatio/ChassisConst.gearRatio * ChassisConst.Fudgefactor;
