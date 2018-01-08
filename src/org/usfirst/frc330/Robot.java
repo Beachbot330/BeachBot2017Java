@@ -93,7 +93,7 @@ public class Robot extends BBIterativeRobot {
         Logger.getInstance().println("BeachbotLib Version:        " + BeachbotLibVersion.Version, Severity.INFO);
         Logger.getInstance().println("WPILib Version:             " + WPILibVersion.Version, Severity.INFO);
         Logger.getInstance().println("NavX Firmware Version:      " + RobotMap.chassisImu.getFirmwareVersion(), Severity.INFO);
-        Logger.getInstance().println("CAN Talon Firmware Version: " + RobotMap.shooterShooter.GetFirmwareVersion(), Severity.INFO);
+        Logger.getInstance().println("CAN Talon Firmware Version: " + RobotMap.shooterShooter.getFirmwareVersion(), Severity.INFO);
 
         if (isPracticeRobot())
         	Logger.getInstance().println("Practice Robot Detected",true);
