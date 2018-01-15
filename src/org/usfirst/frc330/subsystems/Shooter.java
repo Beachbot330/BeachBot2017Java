@@ -88,7 +88,7 @@ public class Shooter extends Subsystem {
 	    	shooter.setNeutralMode(NeutralMode.Coast); 
     	
 	    	temp = new CSVLoggable(true) {
-				public double get() { return shooter.getClosedLoopTarget(0); }
+				public double get() { return getShooterSetpoint(); }
 	    	};
 	    	CSVLogger.getInstance().add("ShooterTargetRPM", temp);
 	    	
@@ -98,7 +98,7 @@ public class Shooter extends Subsystem {
 	    	CSVLogger.getInstance().add("ShooterRPM", temp);
 	    	
 	        temp = new CSVLoggable(false) {
-				public double get() { return shooter.getClosedLoopError(0); }
+				public double get() { return getShooterSetpoint(); }
 	    	};
 	    	CSVLogger.getInstance().add("ShooterError", temp);
 	    	
@@ -141,7 +141,7 @@ public class Shooter extends Subsystem {
     	gate2.setNeutralMode(NeutralMode.Coast); 
     	
     	temp = new CSVLoggable(false) {
-			public double get() { return gate.getClosedLoopTarget(0); }
+			public double get() { return getGateSetpoint(); }
     	};
     	CSVLogger.getInstance().add("GateTargetRPM", temp);
     	
@@ -330,7 +330,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public double getShooterSetpoint(){
-		if (!DISABLE_SHOOTER)
+		if (!DISABLE_SHOOTER && shooter.getControlMode() == ControlMode.Velocity)
 			return shooter.getClosedLoopTarget(0);
 		else
 			return 0.0;
@@ -338,7 +338,14 @@ public class Shooter extends Subsystem {
 	
 	public void setShooterSetpoint(double setpoint){
 		if (!DISABLE_SHOOTER)
-		shooter.set(setpoint);
+			shooter.set(setpoint);
+	}
+	
+	public double getGateSetpoint(){
+		if (gate.getControlMode() == ControlMode.Velocity)
+			return gate.getClosedLoopTarget(0);
+		else
+			return 0.0;
 	}
 	
 }
